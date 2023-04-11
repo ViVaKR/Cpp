@@ -16,10 +16,10 @@ int main(int argc, const char * argv[]) {
     
     switch (choice) {
             
-        case 1:Calculate(); break;
+        case 1: Calculate(); break;
         case 2: TernaryOperator(); break;
             
-        case 100: cout << "프로그램을 종료합니다." << endl; break; 
+        case 100: cout << "프로그램을 종료합니다." << endl; break;
         default: cout << "잘못된 선택입니다." << endl;break;
     }
     return 0;
