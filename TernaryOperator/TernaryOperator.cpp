@@ -1,11 +1,7 @@
-//
-//  TernaryOperator.cpp
-//  HelloWorld
-//
-//  Created by 김범준 on 2023/04/11.
-//
-
-#include "HelloWorldHeader.h"
+#include <iostream>
+using std::cin;
+using std::cout;
+using std::endl;
 
 void TernaryOperator(){
     

@@ -1,11 +1,8 @@
-//
-//  Calculate.cpp
-//  HelloWorld
-//
-//  Created by 김범준 on 2023/04/11.
-//
+#include <iostream>
+using std::cin;
+using std::cout;
+using std::endl;
 
-#include "HelloWorldHeader.h"
 void Calculate() {
     
     char op;
