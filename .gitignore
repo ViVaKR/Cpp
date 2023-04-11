@@ -6,7 +6,7 @@
 *.lo
 *.o
 *.obj
-**/*.xcodeproj/
+HelloWorld/HelloWorld.xcodeproj/
 
 # Precompiled Headers
 *.gch
