@@ -31,6 +31,4 @@ void TernaryOperator(){
     cin >> number;
     number % 2 == 1 ? cout << number << " is ODD (홀수)" : cout << number << " is EVEN (짝수)";
     cout << endl;
-    
-    
 }

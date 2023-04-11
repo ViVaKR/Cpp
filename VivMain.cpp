@@ -10,6 +10,9 @@ using std::endl;
 
 int main()
 {
+    auto result = (10 <=> 20) > 0;
+    cout << result << std::endl;
+    
     cout << "********** 실행할 프로그램 선택하세요 (번호선택) **********" << endl
          << endl;
 
@@ -47,5 +50,7 @@ int main()
         cout << "잘못된 선택입니다." << endl;
         break;
     }
+
+
     return 0;
 }
