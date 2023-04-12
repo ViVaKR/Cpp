@@ -13,4 +13,5 @@ extern "C" {
         return arg1 + strlen(arg2);
     }
 }
-// g++-12 -shared -o demo.dylib demo.cpp
+
+// g++-12 -shared -o bin/demo.dylib demo.cpp
