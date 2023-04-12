@@ -1,5 +1,13 @@
 # CPP
 
+## Run Demo Test
+
+```bash
+    ./run.sh
+```
+
+## [Ref Documnent Site](https://cplusplus.com/)
+
 ## 컴파일러 (Compiler)
 
 - [Windows Download - GCC MinGW-w64 compiler for Windows](https://winlibs.com/)

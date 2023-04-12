@@ -4,24 +4,23 @@
 #include "Switch/Calculate.cpp"
 #include "TernaryOperator/TernaryOperator.cpp"
 #include "TemperatureConvert/TemperatureConvert.cpp"
+#include "DemoStrings.cpp"
 
-using std::cin;
-using std::cout;
-using std::endl;
+using namespace std;
 
 int main()
 {
-    cout << "Hello World! Fine Thanks And You" << endl;
-    auto result = (10 <=> 20) > 0;
-    cout << result << endl;
-    
+    // 컴파일러 테스트
+    // cout << "Hello World! Fine Thanks And You" << endl;
+    // auto result = (10 <=> 20) > 0;
+    // cout << result << endl;
+    // 테스트 끝
+
     cout << "********** 실행할 프로그램 선택하세요 (번호선택) **********" << endl
          << endl;
-
     cout << "(1)"
          << " Calculate" << endl
          << endl;
-         
     cout << "(2)"
          << " Ternary Operator" << endl
          << endl;
@@ -29,14 +28,18 @@ int main()
     cout << "(3)"
          << " Temperature Conversion" << endl
          << endl;
-         
+
+    cout << "(4)"
+         << " Strings" << endl
+         << endl;
+
     cout << "(100)"
          << " 종료" << endl
          << endl;
 
-    cout << std::string(100, '*')
-    << endl
-    << endl;
+    cout << std::string(80, '*')
+         << endl
+         << endl;
 
     int choice;
     cout << "프로그램 번호 선택 >> ";
@@ -55,6 +58,10 @@ int main()
 
     case 3:
         TemperatureConvert();
+        break;
+        
+    case 4:
+        DemoStrings();
         break;
 
     case 100:
