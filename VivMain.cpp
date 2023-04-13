@@ -8,6 +8,7 @@
 #include "DemoWhileLoop.cpp"
 #include "DemoDoWhileLoop.cpp"
 #include "Demo/ForLoop.cpp"
+#include "Demo/PseudoRandom.cpp"
 
 using namespace std;
 
@@ -46,6 +47,10 @@ int main()
 
     cout << "(7)"
          << " For Loop" << endl
+         << endl;
+
+    cout << "(8)"
+         << " Random Number" << endl
          << endl;
 
     cout << "(100)"
@@ -90,7 +95,11 @@ int main()
     case 7:
         ForLoop();
         break;
-        
+
+    case 7:
+        PseudoRandom();
+        break;
+
     case 100:
         cout << "프로그램을 종료합니다." << endl;
         break;
