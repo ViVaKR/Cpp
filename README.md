@@ -176,9 +176,9 @@
     g++-12 -shared -o demo.dylib demo.cpp
 ```
 
-## 2. C++ Library `.dylib` Copy to `CSharp Project Resources/Libs/demo.dylib`
+### 2. C++ Library `.dylib` Copy to `CSharp Project Resources/Libs/demo.dylib`
 
-## 3. (CSharp) C++ Library `.dylib` : CSharp Import Exampe
+### 3. (CSharp) C++ Library `.dylib` : CSharp Import Exampe
 
 ```xml
     <ItemGroup>
@@ -199,6 +199,10 @@
     }
 
 ```
+
+- Variable
+  - Local = declared inside a function or block {}
+  - Globla = declared outside of all functions
 
 ### cmake reinstall
 

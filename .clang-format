@@ -3,4 +3,7 @@ IndentWidth: 4
 IndentCaseLabels: true
 AllowShortCaseLabelsOnASingleLine: true
 AllowShortBlocksOnASingleLine: Always
-BreakBeforeBraces: Allman
+BreakBeforeBraces: Attach
+ColumnLimit: 100
+# BreakBeforeBraces: Stroustrup
+# BreakBeforeBraces: Allman
