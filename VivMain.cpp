@@ -1,5 +1,5 @@
-
 #include <iostream>
+#include <string.h>
 
 #include "Switch/Calculate.cpp"
 #include "TernaryOperator/TernaryOperator.cpp"
@@ -12,7 +12,7 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char *argv[])
 {
     // 컴파일러 테스트
     // cout << "Hello World! Fine Thanks And You" << endl;
@@ -57,14 +57,24 @@ int main()
          << " 종료" << endl
          << endl;
 
-    cout << std::string(80, '*')
+    cout << std::string(60, '*')
          << endl
          << endl;
 
-    int choice;
-    cout << "프로그램 번호 선택 >> ";
-    cin >> choice;
+    long choice;
+    if (strtol(argv[1], NULL, 10) == 100)
+    {
+        cout << "프로그램 번호 선택 >> ";
+        cin >> choice;
+    }
+    else
+    {
+        choice = strtol(argv[1], NULL, 10);
+    }
+    
+    cout << "You Choice " << choice << endl;
 
+    // switch (choice)
     switch (choice)
     {
 
@@ -79,7 +89,7 @@ int main()
     case 3:
         TemperatureConvert();
         break;
-        
+
     case 4:
         DemoStrings();
         break;
@@ -96,7 +106,7 @@ int main()
         ForLoop();
         break;
 
-    case 7:
+    case 8:
         PseudoRandom();
         break;
 
