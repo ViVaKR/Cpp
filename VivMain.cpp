@@ -71,17 +71,15 @@ int main(int argc, char *argv[])
     {
         choice = strtol(argv[1], NULL, 10);
     }
-    
+
     cout << "You Choice " << choice << endl;
 
     // switch (choice)
     switch (choice)
     {
-
     case 1:
         Calculate();
         break;
-
     case 2:
         TernaryOperator();
         break;

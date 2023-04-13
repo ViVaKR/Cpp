@@ -200,6 +200,13 @@
 
 ```
 
+### cmake reinstall
+
+```bash
+    brew install --formula cmake
+    brew link --overwrite cmake
+```
+
 ---
 
 ## [Ref : Bro Code C++](https://youtu.be/-TkoO8Z07hI)
