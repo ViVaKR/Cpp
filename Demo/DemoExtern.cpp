@@ -14,4 +14,5 @@ extern "C" {
     }
 }
 
+// 내보네기 스크립트
 // g++-12 -shared -o bin/demo.dylib DemoExtern.cpp

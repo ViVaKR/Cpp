@@ -1,6 +1,6 @@
 #include <iostream>
 
-void TemperatureConvert()
+void If()
 {
     double temp;
     char unit;

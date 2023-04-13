@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void DemoStrings()
+void Strings()
 {
     // 문자열
     // https://cplusplus.com/reference/string/string/?kw=string

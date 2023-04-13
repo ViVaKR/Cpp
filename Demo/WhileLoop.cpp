@@ -2,10 +2,11 @@
 
 using namespace std;
 
-void DemoWhileLoop()
+void WhileLoop()
 {
     cout << "== While Loop Demo == \n";
     string name;
+    cout << "Enter Your Name >>> ";
     cin.ignore();
     
     while (name.empty())

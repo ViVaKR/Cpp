@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
 
-void Banking(int args) {
+void Banking() {
     cout << "Hello World";
 }
