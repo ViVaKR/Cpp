@@ -5,6 +5,9 @@
 #include "TernaryOperator/TernaryOperator.cpp"
 #include "TemperatureConvert/TemperatureConvert.cpp"
 #include "DemoStrings.cpp"
+#include "DemoWhileLoop.cpp"
+#include "DemoDoWhileLoop.cpp"
+#include "Demo/ForLoop.cpp"
 
 using namespace std;
 
@@ -31,6 +34,18 @@ int main()
 
     cout << "(4)"
          << " Strings" << endl
+         << endl;
+
+    cout << "(5)"
+         << " While Loop" << endl
+         << endl;
+
+    cout << "(6)"
+         << " Do While Loop" << endl
+         << endl;
+
+    cout << "(7)"
+         << " For Loop" << endl
          << endl;
 
     cout << "(100)"
@@ -64,6 +79,18 @@ int main()
         DemoStrings();
         break;
 
+    case 5:
+        DemoWhileLoop();
+        break;
+
+    case 6:
+        DoWhileLoop();
+        break;
+
+    case 7:
+        ForLoop();
+        break;
+        
     case 100:
         cout << "프로그램을 종료합니다." << endl;
         break;

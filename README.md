@@ -29,6 +29,44 @@
 
 ## Visual Studio Code Settings : Target: x86_64-apple-darwin19.6.0
 
+## C++ User Snippets
+
+- File Location (macOS)
+  - `~/Library/Application Support/Code/User/snippets/cpp.json`
+- Short Cut (macOS)
+  - `CMD + SHIFT + P` -> `Snippets: Confugur User Snippets`
+
+- Examples
+  - $0 : end, $1 : first, $2 : second..., prefix : snippet key word, body : result
+  - `\n` : new line, `\t` : tab(4) indent
+
+```json
+    "Viv For Loop": {
+        "prefix": "forv", // forv -> tab key
+        "body": "for (int i = ${1:0}; i < ${2:10}; i++) \n{\n\t${0}\n}",
+        "description": "Cpp For Loop"
+    },
+    "Viv Nested For Loop": {
+        "prefix": "forrv", // forrv -> tab key
+        "body": "for (int i = ${1:0}; i < ${2:10}; i++)\n{\n\tfor (int j = ${3:0}; j < ${4:10}; j++)\n\t{\n\t${0}\n\t}\n}",
+        "description": "Cpp Nested For Loop"
+    },
+    "Viv std::cout": {
+        "prefix": "sct", // sct -> tab key
+        "body": [
+            "std::cout << ${1:str} << ${2:var} << endl;$0"
+        ],
+        "description": "std::scout"
+    },
+    "Viv std::cin": {
+        "prefix": "sci", // sci -> tab key
+        "body": [
+            "std::cin >> ${1:var};$0"
+        ],
+        "description": "Viv std::cin"
+    }
+```
+
 ### `launch.json`
 
 ```json

@@ -15,9 +15,7 @@ void DemoStrings()
     cout << "이름을 입력하세요 : ";
     cin.ignore();
     getline(cin, name);
-    
-
-         
+     
     if (name.empty()) // 변수가 비어 있는 지 체크
     {
         std::cout << "You didn't enter your name\n";

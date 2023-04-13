@@ -4,7 +4,7 @@
 using namespace std;
 
 extern "C" {
-    int demo(int arg1, char* arg2){
+    int DemoExtern(int arg1, char* arg2){
         
         for (size_t i = 0; i < arg1; i++)
         {
@@ -14,4 +14,4 @@ extern "C" {
     }
 }
 
-// g++-12 -shared -o bin/demo.dylib demo.cpp
+// g++-12 -shared -o bin/demo.dylib DemoExtern.cpp

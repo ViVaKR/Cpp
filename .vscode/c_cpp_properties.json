@@ -1,7 +1,7 @@
 {
     "configurations": [
         {
-            "name": "Mac",
+            "name": "MacCppConfig",
             "includePath": [
                 "${workspaceFolder}/**"
             ],
@@ -9,7 +9,7 @@
             "macFrameworkPath": [
                 "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks"
             ],
-            "cStandard": "c17",
+            "cStandard": "c23",
             "cppStandard": "c++23",
             "intelliSenseMode": "macos-clang-x64",
             "compilerPath": "/usr/local/bin/g++-12"
