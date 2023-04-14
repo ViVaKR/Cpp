@@ -11,9 +11,15 @@
 #include "Demo/Switch.cpp"
 #include "Demo/If.cpp"
 #include "Demo/TernaryOperator.cpp"
+#include "Demo/RockPaperScissors.cpp"
+#include "Demo/StuduentScore.cpp"
 
 using namespace std;
 
+/// @brief ./run <exec number>
+/// @param argc 
+/// @param argv 
+/// @return 
 int main(int argc, char *argv[]) {
 
     cout << "********** 실행할 프로그램 선택하세요 (번호선택) **********" << endl << endl;
@@ -27,6 +33,8 @@ int main(int argc, char *argv[]) {
     cout << "(8) Random Number" << endl;
     cout << "(9) Functions" << endl;
     cout << "(10) Banking" << endl;
+    cout << "(11) RockPaperScissors" << endl;
+    cout << "(12) StudentScore" << endl;
     cout << "(100) 종료" << endl;
 
     cout << std::string(60, '*') << endl;
@@ -39,7 +47,9 @@ int main(int argc, char *argv[]) {
         choice = strtol(argv[1], NULL, 10);
     }
 
-    cout << "You Choice " << choice << endl;
+    cout << "## You Choice (" << choice << ") ##" << endl;
+    std::cout << endl;
+    
     switch (choice) {
         case 1: Switch(); break;
         case 2: TernaryOperator(); break;
@@ -51,6 +61,8 @@ int main(int argc, char *argv[]) {
         case 8: PseudoRandom(); break;
         case 9: MainFunction(); break;
         case 10: Banking(); break;
+        case 11: RockPaperScissors(); break;
+        case 12: StudentScore(); break;
         case 100: cout << "프로그램을 종료합니다." << endl; break;
         default: cout << "잘못된 선택입니다." << endl; break;
     }
