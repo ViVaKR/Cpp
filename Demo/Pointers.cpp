@@ -25,13 +25,21 @@ void Pointers() {
 
     // 배열 포인터
     cout << "pStrArr = " << pStrArr << endl << "pStrArr[1] = " << pStrArr[1] << endl;
-    cout << "*pStrArr = " << *pStrArr<< endl; // 배열 첫번째 인덱스의 값
+    cout << "*pStrArr = " << *pStrArr << endl; // 배열 첫번째 인덱스의 값
     cout << "strArr[0] = " << strArr[0] << endl;
 
-    // Null value : 
+    // Null value :
     // A special value that means simething has no value.
-    // When a pointer is holding a null value, that pointer  is not pointing at anything (null pointer)
-    // nullptr = keyword represents a null pointer literal
-    // nullptrs are helpful when determining if an address was successfully assigned to a pointer
+    // When a pointer is holding a null value, that pointer  is not pointing at anything (null
+    // pointer) nullptr = keyword represents a null pointer literal nullptrs are helpful when
+    // determining if an address was successfully assigned to a pointer
 
+    int *pointer = nullptr;
+    int x = 123;
+    // pointer = &x;
+    if (pointer == nullptr) {
+        cout << "Address was not assigned! " << endl;
+    } else {
+        cout << "Address was Assigned! => " << *pointer << endl;
+    }
 }
