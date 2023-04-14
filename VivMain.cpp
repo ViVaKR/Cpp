@@ -18,6 +18,7 @@
 #include "Demo/Memory.cpp"
 #include "Demo/Pointers.cpp"
 #include "Demo/TicTacToe.cpp"
+#include "Demo/DynamicMemory.cpp"
 
 void PrintMenu();
 using namespace std;
@@ -39,7 +40,6 @@ int main(int argc, char *argv[]) {
 
     do {
         cout << std::string(60, '*') << endl;
-
         if (strtol(argv[1], NULL, 10) == 100 || !fromShell) {
             PrintMenu();
             cout << "프로그램 번호 선택 >> ";
@@ -74,6 +74,7 @@ int main(int argc, char *argv[]) {
             case 15: Memory(); break;
             case 16: Pointers(); break;
             case 17: TicTacToe(); break;
+            case 18: DynamicMemory(); break;
             case 100: cout << "프로그램을 종료합니다." << endl; break;
             default: cout << "잘못된 선택입니다." << endl; break;
         }
@@ -102,5 +103,6 @@ void PrintMenu() {
     cout << "(15) Memory" << endl;
     cout << "(16) Pointers" << endl;
     cout << "(17) Tic Tae Toe" << endl;
+    cout << "(18) Dynamic Memory" << endl;
     cout << "(100) 종료" << endl;
 }

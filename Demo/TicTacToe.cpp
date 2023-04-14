@@ -39,7 +39,7 @@ void TicTacToe() {
         }
     }
 
-    cout << "Thanks for playing";
+    cout << "Thanks for playing\n\n";
 }
 
 /// @brief 보드판 그리기
