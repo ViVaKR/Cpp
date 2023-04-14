@@ -1,6 +1,6 @@
 # CPP
 
-## Run Demo Test
+## Do Run Demo Test Funtions
 
 ```bash
     ./run.sh
@@ -57,14 +57,14 @@
         "body": [
             "std::cout << ${1:str} << ${2:var} << std::endl;$0"
         ],
-        "description": "std::cout"
+        "description": "Viv std::cout"
     },
     "Viv cout": {
         "prefix": "outc",
         "body": [
             "cout << ${1:str} << ${2:var} << endl;$0"
         ],
-        "description": "without std, cout"
+        "description": "Viv Without std, cout"
     },
     "Viv cout one": {
         "prefix": "out",
@@ -190,38 +190,6 @@
 
 ### tasks.json example (compiler : c++-12 and clang++ 12.0.0)
 
-```json
-{
- "version": "2.0.0",
- "tasks": [
-        {
-            "type": "cppbuild",
-            "label": "Build Viv GCC 12.2.0",
-            "command": "/usr/local/bin/g++-12",
-            "args": [
-                "-g",
-                "-std=c++23",
-                "${file}",
-                "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
-            ],
-            "options": {
-                "cwd": "${fileDirname}"
-            },
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "detail": "compiler: /usr/local/bin/g++-12"
-        }
-    ]
-}
-
-```
-
 ---
 
 ## C++ Library Export And Import CSharp Project
@@ -261,7 +229,7 @@
   - Local = declared inside a function or block {}
   - Globla = declared outside of all functions
 
-### cmake reinstall
+### (if clang-format install error) Cmake reinstall
 
 ```bash
     brew install --formula cmake
@@ -269,9 +237,5 @@
 ```
 
 ---
-
-### Memory Address : A location in memory where data is stored
-
-> A memory address can accessed with `&` (address-of operator)  
 
 ## [Ref : Bro Code C++](https://youtu.be/-TkoO8Z07hI)
