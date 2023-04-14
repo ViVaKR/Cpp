@@ -2,6 +2,7 @@
 #include <string.h>
 
 #include "Demo/Array.cpp"
+#include "Demo/Array2D.cpp"
 #include "Demo/Banking.cpp"
 #include "Demo/DoWhileLoop.cpp"
 #include "Demo/ForLoop.cpp"
@@ -66,10 +67,12 @@ int main(int argc, char *argv[]) {
             case 11: RockPaperScissors(); break;
             case 12: StudentScore(); break;
             case 13: Array(); break;
+            case 14: Array2D(); break;
             case 100: cout << "프로그램을 종료합니다." << endl; break;
             default: cout << "잘못된 선택입니다." << endl; break;
         }
     } while (choice != 100);
+    system("clear");
 
     return 0;
 }
@@ -89,5 +92,6 @@ void PrintMenu() {
     cout << "(11) RockPaperScissors" << endl;
     cout << "(12) StudentScore" << endl;
     cout << "(13) Array" << endl;
+    cout << "(14) Array2D" << endl;
     cout << "(100) 종료" << endl;
 }

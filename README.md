@@ -41,31 +41,88 @@
   - `\n` : new line, `\t` : tab(4) indent
 
 ```json
+{
     "Viv For Loop": {
-        "prefix": "forv", // forv -> tab key
-        "body": "for (int i = ${1:0}; i < ${2:10}; i++) \n{\n\t${0}\n}",
+        "prefix": "forv",
+        "body": "for (int ${1:i} = ${2:0}; ${1:i} < ${3:10}; ${1:i}++) \n{\n\t${0}\n}",
         "description": "Cpp For Loop"
     },
     "Viv Nested For Loop": {
-        "prefix": "forrv", // forrv -> tab key
-        "body": "for (int i = ${1:0}; i < ${2:10}; i++)\n{\n\tfor (int j = ${3:0}; j < ${4:10}; j++)\n\t{\n\t${0}\n\t}\n}",
+        "prefix": "forrv",
+        "body": "for (int i = ${1:0}; i < ${2:10}; i++)\n{\n\tfor (int j = ${3:0}; j < ${4:10}; j++)\n\t{\n\t\t${0}\n\t}\n}",
         "description": "Cpp Nested For Loop"
     },
     "Viv std::cout": {
-        "prefix": "sct", // sct -> tab key
+        "prefix": "outs",
         "body": [
-            "std::cout << ${1:str} << ${2:var} << endl;$0"
+            "std::cout << ${1:str} << ${2:var} << std::endl;$0"
         ],
-        "description": "std::scout"
+        "description": "std::cout"
+    },
+    "Viv cout": {
+        "prefix": "outc",
+        "body": [
+            "cout << ${1:str} << ${2:var} << endl;$0"
+        ],
+        "description": "without std, cout"
+    },
+    "Viv cout one": {
+        "prefix": "out",
+        "body": [
+            "cout << ${1:str} << endl;$0"
+        ],
+        "description": "without std, cout"
+    },
+    "Viv cout no new line": {
+        "prefix": "outno",
+        "body": [
+            "cout << \"${1:str}\";$0"
+        ],
+        "description": "without std, cout"
+    },
+    "Viv Add New Line": {
+        "prefix": "blank",
+        "body": [
+            "std::cout << endl;${0}"
+        ],
+        "description": "Viv Add New Line"
     },
     "Viv std::cin": {
-        "prefix": "sci", // sci -> tab key
+        "prefix": "in",
         "body": [
             "std::cin >> ${1:var};$0"
         ],
-        "description": "Viv std::cin"
+        "description": "Viv std::scin"
+    },
+    "Viv if return": {
+        "prefix": "ifr",
+        "body": [
+            "if (${1:condition}) return;${0}"
+        ],
+        "description": "if condition return"
+    },
+    "Viv include <iostream>": {
+        "prefix": "#v",
+        "body": [
+            "#include <iostream>\n\nusing namespace std;${0}"
+        ],
+        "description": "Viv include <iostream>"
+    },
+    "Viv Make Function": {
+        "prefix": "vfunc",
+        "body": [
+            "void ${1:Demo}(${2:int} ${3:args}) {",
+            "\t${4:cout << \"Hello World\";$0}",
+            "}"
+        ],
+        "description": "Viv Make void type function"
     }
+}
+// ~/Library/Application Support/Code/User/snippets/cpp.json
+
 ```
+
+---
 
 ### `launch.json`
 
