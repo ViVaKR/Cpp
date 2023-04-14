@@ -114,6 +114,7 @@ void Array() {
         cout << "choice number " << myNum << " index is " << index << endl;
     cin.clear();
     cin.ignore(1000, '\n');
+
     // 배열 요소의 인덱스 번호 구하기 (string)
     string foods[] = {"pizza", "hamburger", "hotdog", "rice"};
     size = sizeof(foods) / sizeof(string);
@@ -131,7 +132,8 @@ void Array() {
     cin.ignore(1000, '\n');
 
     // 배열 일시 초기화
-    int n[5] = {0};
+    int n[5];
+    fill(n, n + 5, 123);
     for (int i = 0; i < sizeof(n) / sizeof(int); i++)
         cout << n[i] << endl;
 
@@ -151,6 +153,35 @@ void Array() {
         cout << i << " ";
     }
     std::cout << endl;
+
+    // fill() : Fills a range of elements with a specified value fill(gegin, end, value)
+    const int SIZE = 100;
+    string fds[SIZE];
+    fill(fds, fds + (SIZE / 3), "pizza");
+    fill(fds + (SIZE / 3), fds + (SIZE / 3) * 2, "hamburger");
+    fill(fds + (SIZE / 3) * 2, fds + SIZE, "hotdog");
+    for (string f : fds) {
+        cout << f << endl;
+    }
+
+    std::cin.clear();
+    // input array items : pizza, hambugger, hotdog, gimchi, ramyen
+    string fs[5];
+    size = sizeof(fs) / sizeof(fs[0]);
+
+    string temp; // for `q` - quit check
+    for (int i = 0; i < size; i++) {
+        cout << "Enter a food you like or 'q' to quit #" << i + 1 << ": ";
+        std::getline(std::cin, temp);
+        if (temp == "q")
+            break;
+        fs[i] = temp;
+    }
+
+    cout << "You like the following food:" << endl;
+    for (int i = 0; !fs[i].empty(); i++) { // 빈 배열까지만
+        cout << i + 1 << ". " << fs[i] << endl;
+    }
 }
 
 /// @brief 배열 합계구하기
