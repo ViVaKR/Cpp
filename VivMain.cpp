@@ -15,6 +15,7 @@
 #include "Demo/Switch.cpp"
 #include "Demo/TernaryOperator.cpp"
 #include "Demo/WhileLoop.cpp"
+#include "Demo/Memory.cpp"
 
 void PrintMenu();
 using namespace std;
@@ -68,6 +69,7 @@ int main(int argc, char *argv[]) {
             case 12: StudentScore(); break;
             case 13: Array(); break;
             case 14: Array2D(); break;
+            case 15: Memory(); break;
             case 100: cout << "프로그램을 종료합니다." << endl; break;
             default: cout << "잘못된 선택입니다." << endl; break;
         }
@@ -93,5 +95,6 @@ void PrintMenu() {
     cout << "(12) StudentScore" << endl;
     cout << "(13) Array" << endl;
     cout << "(14) Array2D" << endl;
+    cout << "(15) Memory" << endl;
     cout << "(100) 종료" << endl;
 }

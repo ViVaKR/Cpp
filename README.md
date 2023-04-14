@@ -270,4 +270,8 @@
 
 ---
 
+### Memory Address : A location in memory where data is stored
+
+> A memory address can accessed with `&` (address-of operator)  
+
 ## [Ref : Bro Code C++](https://youtu.be/-TkoO8Z07hI)
