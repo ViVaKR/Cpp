@@ -24,7 +24,10 @@ using namespace std;
 /// @return
 int main(int argc, char *argv[]) {
 
+    // 쉘에서 시작 : true;
+    // While Loop 에서 반복실행 시 : false
     bool fromShell = true;
+
     cout << "********** 실행할 프로그램 선택하세요 (번호선택) **********" << endl << endl;
     PrintMenu();
 
@@ -37,6 +40,10 @@ int main(int argc, char *argv[]) {
             PrintMenu();
             cout << "프로그램 번호 선택 >> ";
             cin >> choice;
+            if (cin.fail()) {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            }
         } else {
             choice = strtol(argv[1], NULL, 10);
             fromShell = false;
@@ -44,6 +51,7 @@ int main(int argc, char *argv[]) {
 
         cout << "## You Choice (" << choice << ") ##" << endl;
         std::cout << endl;
+
         switch (choice) {
             case 1: Switch(); break;
             case 2: TernaryOperator(); break;
@@ -66,6 +74,7 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
+/// @brief Will Runnig Program List Menus
 void PrintMenu() {
     cout << "(1) Switch" << endl;
     cout << "(2) Ternary Operator" << endl;

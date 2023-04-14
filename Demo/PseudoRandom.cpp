@@ -23,9 +23,7 @@ void PseudoRandom()
 
     srand(time(0));
     int rnum = rand() % 5 + 1;
-
     std::cout << "- You Choice Number: " << rnum << std::endl;
-
     std::cout << endl;
 
     switch (rnum)
@@ -54,7 +52,6 @@ void PseudoRandom()
         std::cin >> guess;
 
         tries++;
-
         if (guess > num)
         {
             std::cout << "Too high! => " << guess << std::endl;

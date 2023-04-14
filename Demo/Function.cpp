@@ -45,7 +45,7 @@ void MainFunction() {
     BakePizza(topping1, topping2);
 
     // Call Global Variable Used Function
-    // 로컬과 전역변수가 동일 할때는 로컬 우선하나 
+    // 로컬과 전역변수가 동일 할때는 로컬 우선하나
     // 전역변수를 사용할 시에는 앞에 `::` 콜론 두개를 붙임
     int var = 111;
     cout << "로컬: " << var << ", 전역: " << ::var << endl;
