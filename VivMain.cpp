@@ -4,7 +4,7 @@
 /// @param argc
 /// @param argv
 /// @return
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
     bool fromShell = true;
     cout << "********** 실행할 프로그램 선택하세요 (번호선택) **********" << endl
@@ -17,7 +17,7 @@ int main(int argc, char* argv[])
     do {
         cout << std::string(60, '*') << endl;
         choice = strtol(argv[1], &p, 10);
-        if(*p != '\0') {
+        if (*p != '\0') {
             cout << "Error ~~" << endl;
             return 1;
         }
@@ -61,6 +61,7 @@ int main(int argc, char* argv[])
             case 21: Sorts(); break;
             case 22: Structs(); break;
             case 23: Enums(); break;
+            case 24: Objects(); break;
             case 100: cout << "프로그램을 종료합니다." << endl; break;
             default: cout << "잘못된 선택입니다." << endl; break;
         }
@@ -96,5 +97,6 @@ void PrintMenu()
     cout << "(21) Sorts" << endl;
     cout << "(22) Structs" << endl;
     cout << "(23) Enums" << endl;
+    cout << "(24) Objects" << endl;
     cout << "(100) 종료" << endl;
 }

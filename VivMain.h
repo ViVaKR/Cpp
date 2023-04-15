@@ -27,6 +27,7 @@
 #include "Demo/TicTacToe.cpp"
 #include "Demo/WhileLoop.cpp"
 #include "Demo/Enums.cpp"
+#include "Demo/Objects.cpp"
 
 void PrintMenu();
 using namespace std;

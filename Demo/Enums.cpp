@@ -10,6 +10,11 @@ enum Day { sunday = 0,
     friday,
     saturday };
 
+enum Color { red,
+    orange,
+    yellow,
+    green };
+    
 void Enums()
 {
 
@@ -18,4 +23,8 @@ void Enums()
     // GREAT if you have a set of potential options
 
     cout << "str" << endl;
+    Day day = Day::friday;
+    switch (day) {
+        case friday: cout << "It is friday!" << endl; break;
+    }
 }
