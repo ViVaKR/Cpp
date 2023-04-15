@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string.h>
+#include <limits>
 
 #include "Demo/Array.cpp"
 #include "Demo/Array2D.cpp"
@@ -17,6 +18,7 @@
 #include "Demo/RockPaperScissors.cpp"
 #include "Demo/Sorts.cpp"
 #include "Demo/Strings.cpp"
+#include "Demo/Structs.cpp"
 #include "Demo/StuduentScore.cpp"
 #include "Demo/Switch.cpp"
 #include "Demo/TernaryOperator.cpp"

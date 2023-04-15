@@ -1,6 +1,6 @@
 #include "VivMain.h"
 
-/// @brief ./run <exec number>
+/// @brief ./run <exec number> `e.g. ./run.sh 20`
 /// @param argc
 /// @param argv
 /// @return
@@ -53,6 +53,7 @@ int main(int argc, char *argv[]) {
             case 19: Recursion(); break;
             case 20: FuncTemplate(); break;
             case 21: Sorts(); break;
+            case 22: Structs(); break;
             case 100: cout << "프로그램을 종료합니다." << endl; break;
             default: cout << "잘못된 선택입니다." << endl; break;
         }
@@ -85,5 +86,6 @@ void PrintMenu() {
     cout << "(19) Recursion" << endl;
     cout << "(20) FuncTemplate" << endl;
     cout << "(21) Sorts" << endl;
+    cout << "(22) Structs" << endl;
     cout << "(100) 종료" << endl;
 }

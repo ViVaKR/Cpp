@@ -5,6 +5,7 @@
 #include <regex>
 
 using namespace std;
+void ArrayCheckValues();
 
 double GetTotal(double p[], int size);
 int SerarchArray(int array[], int size, int element);
@@ -253,4 +254,50 @@ void SortNumberArray(int array[], int size, bool asc) {
         }
     }
 }
-// Ref. Bro Code.
+
+void ArrayCheckValues() {
+    //****************************************************************//
+    int arr[10];                         // 배열 선언
+    std::fill_n(arr, std::size(arr), 0); // 배열 일단 0 으로 채워놓기
+
+    // 배열 첫 인덱스 값을
+    // 사용자로 부터 입력으로 받기
+    // 엄격한 필터링 : 정수 변환 가능, 실수는 정수로 변환
+    bool check;
+    do {
+        check = true;
+
+        if (std::cin.fail()) { // 그냥 엔터만 쳤을 때, 이상한 문자를 넣었을 때
+            check = false;
+            std::cin.clear();
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+        // 첫번째 값 입력 받기
+        std::cout << "배열 첫번째 인덱스에 저장할 값을 입력하세요 (정수): ";
+        string number;
+        std::cin >> number;
+
+        try { // 숫자가 아닌 문자를 넣어는지 여부 필터링
+            arr[0] = stoi(number);
+        } catch (const std::invalid_argument &e) {
+            cout << e.what() << endl;
+            check = false;
+        }
+    } while (!check);
+
+    std::cout << "배열 첫번째 인덱스에 저장된 값: " << arr[0] << endl;
+
+    // 배열 사이즈 구하기
+    int size = sizeof(arr) / sizeof(arr[0]);
+    // 배열 두번째 인덱스 부터 +10 씩 증가형식으로 값 넣기
+    for (int i = 1; i < size; i++)
+        arr[i] += arr[i - 1] + 10;
+
+    // 줄바꿈 모냥내기
+    std::cout << endl;
+
+    // 결과 확인하기 출력
+    std::cout << "배열 현황" << endl;
+    for (int i = 0; i < size; i++)
+        std::cout << "인덱스 ( " << i << " ) 값: " << arr[i] << std::endl;
+}
