@@ -52,9 +52,9 @@ class PizzaKR {
         return this->tp2;
     }
 
-    ~PizzaKR() {
-        std::cout << "PizzaKR -> Good Bye!\n";
-    }
+    // ~PizzaKR() {
+    //     std::cout << "PizzaKR -> Good Bye!\n";
+    // }
 };
 
 class Stove {
@@ -78,6 +78,33 @@ class Stove {
         } else {
             temperature = value;
         }
+    }
+};
+
+// Parent class
+class Animal {
+  public:
+    bool alive = true;
+
+    void eat() {
+        std::cout << "This animal is eating" << std::endl;
+    }
+};
+
+class Dog : public Animal {
+  private:
+  public:
+    void Bark() {
+        std::cout << "The dog goes woof!" << std::endl;
+    }
+};
+
+class Cat : public Animal {
+  private:
+  public:
+    
+    void Meow() {
+      std::cout << "The cat goes meow!" << std::endl;
     }
 };
 
@@ -126,4 +153,11 @@ void Objects() {
     // A clas can recieve attributes and methods form another class
     // Children Classes inherit from a Parent class
     // Helps to reuse similar code found ithin multiple classes
+    std::cout << endl;
+    std::cout << "== 상속 ==" << std::endl;
+    Dog dog;
+    cout << dog.alive << endl;
+    dog.eat();
+    dog.Bark();
+    std::cout << endl;
 }

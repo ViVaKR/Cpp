@@ -4,38 +4,37 @@
 /// @param argc
 /// @param argv
 /// @return
-int main(int argc, char *argv[])
-{
-    bool fromShell = true;
-    cout << "********** 실행할 프로그램 선택하세요 (번호선택) **********" << endl
-         << endl;
-    PrintMenu();
+int main(int argc, char *argv[]) {
+    // bool fromShell = true;
+    // cout << "********** 실행할 프로그램 선택하세요 (번호선택) **********" << endl
+    //      << endl;
+    // PrintMenu();
 
     long choice;
-    char *p;
+    // char *p;
 
     do {
-        cout << std::string(60, '*') << endl;
-        choice = strtol(argv[1], &p, 10);
-        if (*p != '\0') {
-            cout << "Error ~~" << endl;
-            return 1;
+        // choice = strtol(argv[1], &p, 10);
+        // if (*p != '\0') {
+        //     cout << "Error ~~" << endl;
+        //     return 1;
+        // }
+        // if (choice == 100 || !fromShell) {
+        // system("clear");
+        cout << "********** 실행할 프로그램 선택하세요 (번호선택) **********" << endl;
+        PrintMenu();
+        cout << "프로그램 번호 선택 >> ";
+        cin >> choice;
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
-        if (choice == 100 || !fromShell) {
-            PrintMenu();
-            cout << "프로그램 번호 선택 >> ";
-            cin >> choice;
-            if (cin.fail()) {
-                cin.clear();
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            }
-        } else {
-            choice = strtol(argv[1], &p, 10);
-            fromShell = false;
-        }
+        // } else {
+        //     choice = strtol(argv[1], &p, 10);
+        //     fromShell = false;
+        // }
 
-        cout << "## You Choice (" << choice << ") ##" << endl;
-        std::cout << endl;
+        // std::cout << endl;
 
         switch (choice) {
             case 1: Switch(); break;
@@ -72,8 +71,7 @@ int main(int argc, char *argv[])
 }
 
 /// @brief Will Runnig Program List Menus
-void PrintMenu()
-{
+void PrintMenu() {
     cout << "(1) Switch" << endl;
     cout << "(2) Ternary Operator" << endl;
     cout << "(3) If" << endl;
