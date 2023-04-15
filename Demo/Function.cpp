@@ -54,13 +54,13 @@ void MainFunction() {
 
 void HappyBirthday(std::string name, int age) {
 
-    // 컴파일러 c++20 테스트
-    auto result = (10 <=> 20) > 0;
-    if (result == 0) {
-        cout << "You C++ Compiler is C++-20, 23 Enable" << endl;
-    } else {
-        cout << "You C++ Compiler is C++-20, 23 UnEnable" << endl;
-    }
+    // // 컴파일러 c++20 테스트
+    // auto result = (10 <=> 20) > 0;
+    // if (result == 0) {
+    //     cout << "You C++ Compiler is C++-20, 23 Enable" << endl;
+    // } else {
+    //     cout << "You C++ Compiler is C++-20, 23 UnEnable" << endl;
+    // }
 
     std::cout << endl;
     std::cout << "Happy Birthday to you! " << name << std::endl;

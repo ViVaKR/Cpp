@@ -73,7 +73,7 @@ void PlayerMove(char *spaces, char player) {
             system("clear");
             break;
         }
-    } while (!number > 0 || !number < 8);
+    } while ((number < 1) || (number > 8));
 }
 
 /// @brief 컴퓨터 플레이

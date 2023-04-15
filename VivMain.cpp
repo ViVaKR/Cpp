@@ -4,18 +4,24 @@
 /// @param argc
 /// @param argv
 /// @return
-int main(int argc, char *argv[]) {
-
+int main(int argc, char* argv[])
+{
     bool fromShell = true;
-
-    cout << "********** 실행할 프로그램 선택하세요 (번호선택) **********" << endl << endl;
+    cout << "********** 실행할 프로그램 선택하세요 (번호선택) **********" << endl
+         << endl;
     PrintMenu();
 
     long choice;
+    char *p;
 
     do {
         cout << std::string(60, '*') << endl;
-        if (strtol(argv[1], NULL, 10) == 100 || !fromShell) {
+        choice = strtol(argv[1], &p, 10);
+        if(*p != '\0') {
+            cout << "Error ~~" << endl;
+            return 1;
+        }
+        if (choice == 100 || !fromShell) {
             PrintMenu();
             cout << "프로그램 번호 선택 >> ";
             cin >> choice;
@@ -24,7 +30,7 @@ int main(int argc, char *argv[]) {
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
             }
         } else {
-            choice = strtol(argv[1], NULL, 10);
+            choice = strtol(argv[1], &p, 10);
             fromShell = false;
         }
 
@@ -54,6 +60,7 @@ int main(int argc, char *argv[]) {
             case 20: FuncTemplate(); break;
             case 21: Sorts(); break;
             case 22: Structs(); break;
+            case 23: Enums(); break;
             case 100: cout << "프로그램을 종료합니다." << endl; break;
             default: cout << "잘못된 선택입니다." << endl; break;
         }
@@ -64,7 +71,8 @@ int main(int argc, char *argv[]) {
 }
 
 /// @brief Will Runnig Program List Menus
-void PrintMenu() {
+void PrintMenu()
+{
     cout << "(1) Switch" << endl;
     cout << "(2) Ternary Operator" << endl;
     cout << "(3) If" << endl;
@@ -87,5 +95,6 @@ void PrintMenu() {
     cout << "(20) FuncTemplate" << endl;
     cout << "(21) Sorts" << endl;
     cout << "(22) Structs" << endl;
+    cout << "(23) Enums" << endl;
     cout << "(100) 종료" << endl;
 }

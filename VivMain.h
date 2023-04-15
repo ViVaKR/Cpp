@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string.h>
 #include <limits>
+#include <errno.h>
+#include <stdlib.h>
 
 #include "Demo/Array.cpp"
 #include "Demo/Array2D.cpp"
@@ -24,6 +26,7 @@
 #include "Demo/TernaryOperator.cpp"
 #include "Demo/TicTacToe.cpp"
 #include "Demo/WhileLoop.cpp"
+#include "Demo/Enums.cpp"
 
 void PrintMenu();
 using namespace std;
