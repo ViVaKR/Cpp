@@ -1,28 +1,4 @@
-#include <iostream>
-#include <string.h>
-
-#include "Demo/Array.cpp"
-#include "Demo/Array2D.cpp"
-#include "Demo/Banking.cpp"
-#include "Demo/DoWhileLoop.cpp"
-#include "Demo/ForLoop.cpp"
-#include "Demo/Function.cpp"
-#include "Demo/If.cpp"
-#include "Demo/PseudoRandom.cpp"
-#include "Demo/RockPaperScissors.cpp"
-#include "Demo/Strings.cpp"
-#include "Demo/StuduentScore.cpp"
-#include "Demo/Switch.cpp"
-#include "Demo/TernaryOperator.cpp"
-#include "Demo/WhileLoop.cpp"
-#include "Demo/Memory.cpp"
-#include "Demo/Pointers.cpp"
-#include "Demo/TicTacToe.cpp"
-#include "Demo/DynamicMemory.cpp"
-#include "Demo/Recursion.cpp"
-
-void PrintMenu();
-using namespace std;
+#include "VivMain.h"
 
 /// @brief ./run <exec number>
 /// @param argc
@@ -30,8 +6,6 @@ using namespace std;
 /// @return
 int main(int argc, char *argv[]) {
 
-    // 쉘에서 시작 : true;
-    // While Loop 에서 반복실행 시 : false
     bool fromShell = true;
 
     cout << "********** 실행할 프로그램 선택하세요 (번호선택) **********" << endl << endl;
@@ -77,6 +51,8 @@ int main(int argc, char *argv[]) {
             case 17: TicTacToe(); break;
             case 18: DynamicMemory(); break;
             case 19: Recursion(); break;
+            case 20: FuncTemplate(); break;
+            case 21: Sorts(); break;
             case 100: cout << "프로그램을 종료합니다." << endl; break;
             default: cout << "잘못된 선택입니다." << endl; break;
         }
@@ -107,5 +83,7 @@ void PrintMenu() {
     cout << "(17) Tic Tae Toe" << endl;
     cout << "(18) Dynamic Memory" << endl;
     cout << "(19) Recursion" << endl;
+    cout << "(20) FuncTemplate" << endl;
+    cout << "(21) Sorts" << endl;
     cout << "(100) 종료" << endl;
 }
