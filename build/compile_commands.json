@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/Users/vivabm/GitProjects/CPP/build",
+  "command": "/usr/local/bin/g++-12 -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -o CMakeFiles/Viv.dir/VivMain.cpp.o -c /Users/vivabm/GitProjects/CPP/VivMain.cpp",
+  "file": "/Users/vivabm/GitProjects/CPP/VivMain.cpp",
+  "output": "CMakeFiles/Viv.dir/VivMain.cpp.o"
+}
+]
