@@ -86,7 +86,7 @@ class Animal {
   public:
     bool alive = true;
 
-    void eat() {
+    void Eat() {
         std::cout << "This animal is eating" << std::endl;
     }
 };
@@ -101,14 +101,48 @@ class Dog : public Animal {
 
 class Cat : public Animal {
   private:
+    bool alive = true;
+
   public:
-    
     void Meow() {
-      std::cout << "The cat goes meow!" << std::endl;
+        std::cout << "The cat goes meow!" << std::endl;
     }
 };
 
-/// @brief Ref. Bro Code
+class Shape {
+  public:
+    double area;
+    double volume;
+    Shape() {}
+    Shape(double _area, double _volume) {
+        area = _area;
+        volume = _volume;
+    }
+};
+
+class Cubes : public Shape {
+  public:
+    double side;
+    Cubes() {}
+    Cubes(double _side) {
+        this->side = _side;
+        this->area = side * side * 6;
+        this->volume = side * side * side;
+    }
+};
+
+class Sphere : public Shape {
+  public:
+    double radius;
+    Sphere() {}
+    Sphere(double _radius) {
+        radius = _radius;
+        this->area = 4 * 3.14159 * (radius * radius);
+        this->volume = (4 / 3.0) * 3.14159 * (radius * radius * radius);
+    }
+};
+
+/// @brief
 void Objects() {
 
     // Object
@@ -157,7 +191,15 @@ void Objects() {
     std::cout << "== 상속 ==" << std::endl;
     Dog dog;
     cout << dog.alive << endl;
-    dog.eat();
+    dog.Eat();
     dog.Bark();
     std::cout << endl;
+
+    Sphere sphere(20.0);
+    std::cout << "Area: " << sphere.area << " cm/n" << endl;
+    std::cout << "Volume: " << sphere.volume << endl;
+
+    Cubes cbb(12.3);
+    std::cout << "Area: " << cbb.area << " cm/n" << endl;
+    std::cout << "Volume: " << cbb.volume << " cm/n" << endl;
 }
