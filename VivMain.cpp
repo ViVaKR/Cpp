@@ -61,6 +61,7 @@ int main(int argc, char *argv[]) {
             case 22: Structs(); break;
             case 23: Enums(); break;
             case 24: Objects(); break;
+            case 25: Caller(); break;
             case 100: cout << "프로그램을 종료합니다." << endl; break;
             default: cout << "잘못된 선택입니다." << endl; break;
         }
@@ -96,5 +97,6 @@ void PrintMenu() {
     cout << "(22) Structs" << endl;
     cout << "(23) Enums" << endl;
     cout << "(24) Objects" << endl;
+    cout << "(25) Finbonacci" << endl;
     cout << "(100) 종료" << endl;
 }

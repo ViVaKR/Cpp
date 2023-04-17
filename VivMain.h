@@ -28,6 +28,7 @@
 #include "Demo/WhileLoop.cpp"
 #include "Demo/Enums.cpp"
 #include "Demo/Objects.cpp"
+#include "Demo/Fibonacci.cpp"
 
 void PrintMenu();
 using namespace std;
