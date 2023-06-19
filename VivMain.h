@@ -29,6 +29,8 @@
 #include "Demo/Enums.cpp"
 #include "Demo/Objects.cpp"
 #include "Demo/Fibonacci.cpp"
+#include "Demo/Jisikin.cpp"
+#include "Demo/Database.cpp"
 
 void PrintMenu();
 using namespace std;
