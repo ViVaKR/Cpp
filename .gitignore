@@ -32,3 +32,4 @@ HelloWorld/HelloWorld.xcodeproj/
 *.out
 *.app
 
+.DS_Store
