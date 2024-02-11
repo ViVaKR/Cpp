@@ -1,16 +1,14 @@
 {
     "configurations": [
         {
-            "name": "C/C++: clang++ build active file",
-            "type": "cppdbg",
+            "name": "clang++ active file build",
+            "type": "lldb",
             "request": "launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}",
             "args": ["100"],
-            "stopAtEntry": false,
+            "stopOnEntry": true,
             "cwd": "${workspaceFolder}",
-            "environment": [],
-            "MIMode": "lldb",
-            "preLaunchTask": "C/C++: clang++ build active file"
+            "preLaunchTask": "clang++ active file build"
         }
     ],
     "version": "0.2.0"

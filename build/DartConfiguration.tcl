@@ -4,17 +4,17 @@
 
 
 # Configuration directories and files
-SourceDirectory: /Users/vivabm/GitProjects/CPP
-BuildDirectory: /Users/vivabm/GitProjects/CPP/build
+SourceDirectory: /Users/vivakr/GitWorkspace/Cpp
+BuildDirectory: /Users/vivakr/GitWorkspace/Cpp/build
 
 # Where to place the cost data store
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: vivaBM.local
+Site: primary.vivakr.local
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
-BuildName: Darwin-g++-12
+BuildName: Darwin-clang++
 
 # Subprojects
 LabelsForSubprojects: 
@@ -27,8 +27,8 @@ SubmitInactivityTimeout:
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/usr/local/Cellar/cmake/3.26.3/bin/cmake" "/Users/vivabm/GitProjects/CPP"
-MakeCommand: /usr/local/Cellar/cmake/3.26.3/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
+ConfigureCommand: "/Applications/CMake.app/Contents/bin/cmake" "/Users/vivakr/GitWorkspace/Cpp"
+MakeCommand: /Applications/CMake.app/Contents/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 
 # version control
@@ -45,7 +45,7 @@ SVNOptions:
 SVNUpdateOptions: 
 
 # Git options
-GITCommand: /usr/local/bin/git
+GITCommand: /opt/homebrew/bin/git
 GITInitSubmodules: 
 GITUpdateOptions: 
 GITUpdateCustom: 
@@ -58,13 +58,13 @@ P4UpdateOptions:
 P4UpdateCustom: 
 
 # Generic update command
-UpdateCommand: /usr/local/bin/git
+UpdateCommand: /opt/homebrew/bin/git
 UpdateOptions: 
 UpdateType: git
 
 # Compiler info
-Compiler: /usr/local/bin/g++-12
-CompilerVersion: 12.2.0
+Compiler: /usr/bin/clang++
+CompilerVersion: 15.0.0.15000100
 
 # Dynamic analysis (MemCheck)
 PurifyCommand: 
