@@ -1,8 +1,0 @@
-[
-{
-  "directory": "/Users/vivakr/GitWorkspace/Cpp/build",
-  "command": "/usr/bin/clang++ -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -o CMakeFiles/Viv.dir/VivMain.cpp.o -c /Users/vivakr/GitWorkspace/Cpp/VivMain.cpp",
-  "file": "/Users/vivakr/GitWorkspace/Cpp/VivMain.cpp",
-  "output": "CMakeFiles/Viv.dir/VivMain.cpp.o"
-}
-]

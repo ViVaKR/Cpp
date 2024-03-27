@@ -258,8 +258,8 @@ void SortNumberArray(int array[], int size, bool asc) {
 void ArrayCheckValues() {
     //****************************************************************//
     int arr[10]; // 배열 선언
-    // std::fill_n(arr, std::size(arr), 0); // 배열 일단 0 으로 채워놓기
 
+    std::fill_n(arr, std::size(arr), 0);
     // 배열 첫 인덱스 값을
     // 사용자로 부터 입력으로 받기
     // 엄격한 필터링 : 정수 변환 가능, 실수는 정수로 변환

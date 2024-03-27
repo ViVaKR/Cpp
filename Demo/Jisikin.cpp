@@ -38,7 +38,7 @@ void Move(double a, double *cnt) {
         cout << endl;
         cnt[i] = i == 0 ? cnt[i] - nm : (int)(cnt[i] - nm);
         cnt[i + 1] = nm;
-        std::this_thread::sleep_for(1000ms);
+        this_thread::sleep_for(1000);
         // system("clear");
 
         std::cout << endl;
