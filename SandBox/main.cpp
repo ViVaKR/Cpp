@@ -219,11 +219,18 @@ void ArrayDemo()
 
 void DemoC()
 {
+    int a = 3;
+    int b = (3);
+    int c = {3};
+    int d{3};
+
+    cout << a << b << c << d << endl;
 }
 int main(int argc, char *argv[])
 {
 
-    ArrayDemo();
+    // ArrayDemo();
+    DemoC();
 
     return 0;
 }
