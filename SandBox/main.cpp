@@ -1,17 +1,24 @@
 
 #include <array>
 #include <cfloat>
+
+#include <algorithm>
+#include <bitset>
 #include <iostream>
+#include <numeric>
 #include <regex>
 #include <stdint.h>
+#include <stdlib.h>
 #include <string.h>
 #include <string>
+#include <vector>
 
 using namespace std;
 using std::array;
 using std::cin;
 using std::cout;
 using std::endl;
+using std::initializer_list;
 
 void FloatToBinary(float num)
 {
@@ -33,204 +40,178 @@ void FloatToBinary(float num)
             printf("0");
         }
     }
+
     printf(" x 2^%d\n", exp - 1);
-}
 
-void Demo()
-{
-    printf("int convert to floating point bit array\n");
-    // unsigned char bytes[4];
-    // unsigned long n = 339319;
+    cout << "\n";
+    int bias = (exp - 1) + 127; // 지수부 계산
+    std::string binary = std::bitset<8>(bias).to_string();
+    cout << binary << endl;
 
-    // bytes[0] = (n >> 24) & 0xFF;
-    // bytes[1] = (n >> 16) & 0xFF;
-    // bytes[2] = (n >> 8) & 0xFF;
-    // bytes[3] = n & 0xFF;
+    unsigned long decimal = std::bitset<8>(binary).to_ulong();
+    cout << decimal << endl;
+    cout << "\n";
 
-    // printf("( %lX ) => { `%X - %X - %X - %X` }\n%X", n, bytes[0], bytes[1], bytes[2], bytes[3], 0xFF);
-
-    // int8_t data[4];
-    // data[0] = 0x48;
-    // data[1] = 0x65;
-    // data[2] = 0x6c;
-    // data[3] = 0x6f;
-    // int x = (data[0] << 24) | (data[1] << 16) | (data[2] << 8) | data[3];
-
-    // printf("\n%32X\n", x);
-
-    // 3.14f 구조 해부.
-    // sign - Exponent - Mantissa
-    // 0    - 10000000 - 100 1000 11110101 11000010
-    // 0                            : Sign bit (0: positive, 1: negative)
-    // 1000 0000                    : Exponent (0x80 = 128, 128 - 127 = 1, 2^1 = 2)
-    // 100 1000 1111 0101 1100 0010 : Mantissa normalized (23bit )
-
-    /*
-
-    1. 정수 `3.` 부분 이진후 만들기
-    Divide the number repeatedly by 2.
-    Keep track of each remainder.
-    We stop when we get a quotient that is equal to zero.
-    division = quotient + remainder;
-
-        3 ÷ 2 = 1 + 1;
-        1 ÷ 2 = 0 + 1
-    --> 3(10) = 11(2)
-
-    3. 소수 부분 이진만들기 (fractional part: `0.14`)
-
-    - 2로 곱하면서 소수부분을 계속해서 추출한다.
-    - 정수부분을 추출한다. (1 or 0)
-    - 소수부분이 0이 되면 멈춘다.
-        #) 곱하기 = 정수 (integer, 2) + 소수 (fractional part)
-        1) 0.14 × 2 = 0 + 0.28;
-        2) 0.28 × 2 = 0 + 0.56;
-        3) 0.56 × 2 = 1 + 0.12;
-        4) 0.12 × 2 = 0 + 0.24;
-        5) 0.24 × 2 = 0 + 0.48;
-        6) 0.48 × 2 = 0 + 0.96;
-        7) 0.96 × 2 = 1 + 0.92;
-        8) 0.92 × 2 = 1 + 0.84;
-        9) 0.84 × 2 = 1 + 0.68;
-        10) 0.68 × 2 = 1 + 0.36;
-        11) 0.36 × 2 = 0 + 0.72;
-        12) 0.72 × 2 = 1 + 0.44;
-        13) 0.44 × 2 = 0 + 0.88;
-        14) 0.88 × 2 = 1 + 0.76;
-        15) 0.76 × 2 = 1 + 0.52;
-        16) 0.52 × 2 = 1 + 0.04;
-        17) 0.04 × 2 = 0 + 0.08;
-        18) 0.08 × 2 = 0 + 0.16;
-        19) 0.16 × 2 = 0 + 0.32;
-        20) 0.32 × 2 = 0 + 0.64;
-        21) 0.64 × 2 = 1 + 0.28;
-        22) 0.28 × 2 = 0 + 0.56;
-        23) 0.56 × 2 = 1 + 0.12;
-        24) 0.12 × 2 = 0 + 0.24;
-
-    ## 결론 ##
-    --> 0.14(10) = 0.0010 0011 1101 0111 0000 1010(2)
-    --> 3.14(10) = 11.0010 0011 1101 0111 0000 1010(2) * 2^0
-    --> normalize = 1.10010 0011 1101 0111 0000 1010(2) * 2^1
-
-    sign - Exponent           - Mantissa
-    0    - 10000000           - 100 1000 11110101 11000010
-    +    -   2^1 (128 - 127)  - 1. 은 항상 같으니까 제외하고 계산 10010 0011 1101 0111 0000 1010(2)
-
-*/
-
-    unsigned char buffer[4];
-    buffer[0] = 0b01000000;
-    buffer[1] = 0b01001000;
-    buffer[2] = 0b11110101;
-    buffer[3] = 0b11000010;
     union
     {
-        float f;
-        int i;
-    } f;
-    f.i = (buffer[0] << 24) | (buffer[1] << 16) | (buffer[2] << 8) | buffer[3];
-    printf("Float=%f\n", f.f);
+        float input; // assumes sizeof(float) == sizeof(int)
+        int output;
+    } data;
 
-    // buffer[0] = 222, buffer[1] = 216, buffer[2] = 247, buffer[3] = 60;
+    data.input = num;
 
-    FloatToBinary(3.14);
-    // 0b_01000000_01001000_11110101_11000010
+    std::bitset<sizeof(float) * CHAR_BIT> bits(data.output);
+    std::cout << bits << std::endl;
 
-    // loop();
-
-    std::string str = "hello * my + name ^ is ..?.. vivakr.?";
-    // escape (\\.) 하거나? 대괄호로 묶어서 처리해야 함.
-    string s = regex_replace(str, regex("[.]"), "");
-    string ss = regex_replace(str, regex("[?_*^]"), "");
-
-    // 아래의 문자 자체를 지울 때는 escape 문자를 사용해야 한다.
-    // ? : colou?r -> color or colour
-    // * : 빵번 이상 -> ab*c -> ac, abc, abbc, abbbc, ...
-    // + : 한번 이상 -> ab+c -> abc, abbc, abbbc, ...
-    // . : 1개의 문자와 일치, 단일행 모드에서는 줄바꿈 문자 제외.
-    // [ ] : 문자 클래스, [abc] -> a, b, c 중 하나와 일치.
-    // [^ ] : 부정 문자 클래스, [^abc] -> a, b, c를 제외한 문자와 일치.
-    // ^ : 문자열의 시작, ^abc -> abc로 시작하는 문자열과 일치.
-
-    cout << s << endl
-         << ss << endl;
-
-    // 0000 0000 0000 0000 0000 0000 0000 0000     [ 32 bit (4bytes)]
-    // 0100 1000                                   (data[0] << 24)
-    //           0110 0101                         (data[1] << 16)
-    //                     0110 1100               (data[2] << 8)
-    //                               0110 1111     (data[3])
-    //               `all or bitwise`
-    // 0100 1000 0110 0101 0110 1100 0110 1111     [ result binary]
-    //   4    8    6    5    6    C    6    F      ( result hex : 0x48656C6F )
-
-    // 0000 0000, 0000 0101, 0010 1101, 0111 0111  (e.g., data)
-    // 0000 0000, 0000 0000, 0000 0000, 1111 1111  (e.g., mask `FF`)
-    //
-    //                                  0000 0000 (data >> 24 )
-    // 0000 0000, 0000 0000, 0000 0000, 1111 1111 ( & mask)
-    //                                          0 ( 0 )
-
-    //                       0000 0000, 0000 0101 (data >> 16 )
-    // 0000 0000, 0000 0000, 0000 0000, 1111 1111 ( & mask)
-    //                                       0101 (5)
-
-    //            0000 0000, 0000 0101, 0010 1101 ( data >> 8)
-    // 0000 0000, 0000 0000, 0000 0000, 1111 1111 ( & mask)
-    //                                  0010 1101 (2D)
-
-    // 0000 0000, 0000 0101, 0010 1101, 0111 0111 (data)
-    // 0000 0000, 0000 0000, 0000 0000, 1111 1111 ( & mask)
-    //                                  0111 0111 (77)
-
-    // --> 5 2D 77
+    // or
+    std::cout << "BIT 4: " << bits[4] << std::endl;
+    std::cout << "BIT 7: " << bits[7] << std::endl;
 }
 
-void DemoB()
+/// @brief 새로운 초기화
+void NewInitialize()
 {
-    int a{123};
-
-    int arr[5]{};
-
-    for (auto &at : arr) {
-        cout << at;
-    }
-    cout << endl;
-    auto x{3};
-    cout << typeid(x).name() << endl;
-}
-
-void ArrayDemo()
-{
-    int arr[5] = {1, 2, 3, 4, 5};
-
-    array<int, 5> array = {1, 2, 3, 4, 5};
-    for (auto i = 0; i < array.size(); i++) {
-        cout << array[i] << endl;
-    }
-
-    // 이더레이터 : begin()  ~ end()
-    for (auto it = array.begin(); it != array.end(); it++) {
-        cout << *it << " ";
-    }
-    cout << endl;
-}
-
-void DemoC()
-{
-    int a = 3;
-    int b = (3);
+    int a = 1;
+    int b(3);
     int c = {3};
-    int d{3};
 
-    cout << a << b << c << d << endl;
+    int d{3};
+    int e{0};
+    int f{};
+    cout << a << b << c << d << e << f << endl;
+
+    int arr[5]{}; // 0으로 초기화
+    for (auto &item : arr) {
+        cout << item << " ";
+    }
+
+    cout << "\n";
+
+    // auto : 자동으로 타입을 추론, 초기화 값에 따라 타입이 결정된다. type inference
+    auto x{3};          // int
+    auto y = {1, 2, 3}; // initializer_list<int>
+    cout << typeid(x).name() << endl;
+    cout << typeid(y).name() << endl;
 }
+
+/// @brief 표준편차
+void StandardDeviation(vector<int> v)
+{
+    /*
+        1. 평균을 구한다.
+        2. 편차를 구한다.
+        3. 편차의 제곱을 구한다.
+        4. 편차 제곱의 평균으로 분산을 구한다. (편차제곱의 평균)
+        5. 분산에 루트를 씌워 표준편차를 구한다.
+     */
+
+    double sum = std::accumulate(v.begin(), v.end(), 0.0);
+    double mean = sum / v.size();
+
+    std::vector<double> diff(v.size());
+    std::transform(v.begin(), v.end(), diff.begin(), [mean](double x) { return x - mean; });
+    double sq_sum = std::inner_product(diff.begin(), diff.end(), diff.begin(), 0.0);
+    double stdev = std::sqrt(sq_sum / v.size());
+
+    cout.precision(3);
+    // 평균 : 전체 합을 원소의 개수로 나눈 값
+    cout << "\u27A5 평균\t:\t" << mean << endl;
+    // 분산 : 편차들의 제곱의 평균 (평균에서 얼마나 떨어져 있는지)
+    cout << "\u27A5 분산\t:\t" << (sq_sum / v.size()) << endl;
+    // 표준편차 : 평균에서 얼마나 떨어져 있는지
+    cout << "\u27A5 표준편차:\t" << stdev << endl;
+    cout << "\n";
+}
+
+/// @brief 배열
+void Array()
+{
+    // int arr[5] = {1, 2, 3, 4, 5};        // type 1
+    // array<int, 5> arr = {1, 2, 3, 4, 5}; // type 2
+    // 범위 기반 for문
+    // for (auto i = 0; i < arr.size(); i++) {
+    //     cout << arr[i] << endl;
+    // }
+
+    // 이더레이터 : begin(시작원소)  ~ end(마지막 원소 다음 위치)
+    // for (auto it = arr.begin(); it != arr.end(); it++) { // it : 이터레이터
+    //     cout << *it << " ";                              // *it : 이터레이터가 가리키는 원소
+    // }
+    // cout << "\n";
+    // for (auto &item : arr) {
+    //     cout << item << " ";
+    // }
+    // cout << endl;
+
+    const int SIZE = 4;
+    array<int, SIZE> studentId = {};
+    array<string, SIZE> studentName = {};
+
+    cout << "\u27A6 학생 정보를  \u275D\033[33m학번 \u2615 이름\033[0m\u275E\n방식을 입력하세요(아래 명단 참조)\n";
+    cout << "1001 장길산, 1002 임꺽정 1003 최경희 1004 용감이\n";
+    for (int i = 0; i < SIZE; i++) {
+        cout << "\033[31m\u26DF\033[0m  ";
+        cin >> studentId[i] >> studentName[i];
+    }
+    cout << "\n";
+    cout << "\t\033[31;42m" << std::string(5, (char)0x20) << "\u2728 학생정보 \u2728" << std::string(5, (char)0x20) << "\033[0m" << endl;
+    for (int i = 0; i < 4; i++) {
+        cout << "\t" << i + 1 << "\t" << studentId[i] << "\t" << studentName[i] << endl;
+    }
+    cout << "\n";
+    array<string, 4> className = {"대학수학", "대학영어", "C++언어", "테니스"};
+    vector<vector<int>> classGrade = {{91, 83, 95, 88}, {78, 85, 92, 89}, {67, 90, 77, 83}, {47, 88, 96, 85}};
+
+    for (auto i = 0; i < classGrade.size(); i++) {
+        cout << "\033[33m";
+        cout << "\u2728 [ " << className[i] << " ] 점수, 평균, 분산과 표준편차 \u2728\n";
+        cout << "\033[35m\u2748 Score :\t";
+        for (auto &item : classGrade[i]) {
+            cout << item << " ";
+        }
+        cout << "\033[0m\n";
+        StandardDeviation(classGrade[i]);
+    }
+}
+
+void Menu();
+
 int main(int argc, char *argv[])
 {
+    int choice(0);
+    if (argc >= 2) choice = stoi(argv[1]);
 
-    // ArrayDemo();
-    DemoC();
+    while (true) {
+        switch (choice) {
+            case 0: exit(0);
+            case 1: Array(); break;         // [ 배열 ]
+            case 2: NewInitialize(); break; // [ 새로운 초기화 규칙 ]
+            case 3:
+                FloatToBinary(3.14);
+                break;                      // [ 실수를 2진수로 변환 ]
+            // case 4 : StandardDeviation(vector<int>{1, 2}); break; // [ 표준편차 ]
+            default: exit(55); break;
+        }
 
+        cout << endl
+             << "\u2728 \033[33m실행 메뉴 선택\033[0m \u2728"
+             << "\n";
+        Menu();
+        cout << "\n";
+        cout << "\033[33m\u269E Enter your choice \u269F\033[0m"
+             << endl
+             << "\033[31m\u2771\033[0m ";
+        cin >> choice;
+    }
     return 0;
+}
+
+void Menu()
+{
+    cout << "0. Exit" << endl;
+    cout << "1. Array" << endl;
+    cout << "2. New Initialize" << endl;
+    cout << "3. FloatToBinary" << endl;
+    cout << "4. 표준편차" << endl;
+    cout << "5. ..." << endl;
 }
