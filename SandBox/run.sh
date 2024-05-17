@@ -4,6 +4,7 @@
 $(which clang++) \
 -fcolor-diagnostics \
 -fansi-escape-codes \
+-std=c++23 \
 -g main.cpp \
 -o ./bin/SandBoxEx \
 && \
@@ -13,7 +14,7 @@ $(which clang++) \
 
 case "$?" in
 0)
-    echo "Success"
+    clear
     ;;
 1[0-9])
     echo "Return 10-19"

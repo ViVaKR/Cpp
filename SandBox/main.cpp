@@ -174,6 +174,129 @@ void Array()
     }
 }
 
+void Func(int n)
+{
+    cout << n << ", ";
+}
+
+struct PrintFunc
+{
+    void operator()(int n) { cout << n << ", "; }
+};
+
+int global = 100;
+/// @brief 람다식
+void Lambda()
+{
+    // 람다식 : 익명함수, 함수를 정의하고 호출하는 것을 동시에 할 수 있다.
+    // [캡쳐 블록](매개변수) -> 반환형 {함수 본문}
+    // 캡쳐 블록 : 외부 변수를 람다식 내부로 가져오는 것
+    // [=] : 외부 변수를 모두 가져온다.
+    // [&] : 외부 변수를 모두 참조한다.
+    // [x] : x만 가져온다.
+    // [&x] : x만 참조한다.
+    // [=, &x] : 외부 변수는 모두 가져오고, x만 참조한다.
+    // [&, x] : 외부 변수는 모두 참조하고, x만 가져온다.
+    // [this] : 클래스 내부의 멤버 변수를 사용할 때 사용한다.
+    // [&, this] : 클래스 내부의 멤버 변수를 참조할 때 사용한다.
+
+    /*** [ captures ] (params) { body } ***/
+
+    // 람다식을 변수에 저장
+    auto f = [](int a, int b) -> int { return a + b; };
+    cout << f(1, 2) << endl;
+
+    // 람다식을 함수의 인자로 사용
+    auto g = [](int a, int b) -> int { return a * b; };
+    cout << g(2, 3) << endl;
+
+    // 람다식을 함수의 반환값으로 사용
+    auto h = [](int a, int b) -> int { return a - b; };
+    cout << h(3, 2) << endl;
+
+    // 람다식을 함수의 반환값으로 사용
+    auto i = [](int a, int b) -> int { return a / b; };
+    cout << i(6, 2) << endl;
+
+    // 람다식을 함수의 반환값으로 사용
+    auto j = [](int a, int b) -> int { return a % b; };
+    cout << j(5, 2) << endl;
+
+    std::vector<int> v = {11, 22, 33, 44, 55};
+    for (auto &item : v) {
+        cout << item << ", ";
+    }
+    cout << endl;
+
+    // 람다식을 함수의 인자로 사용
+    std::for_each(v.begin(), v.end(), [](int n) { cout << n << " "; });
+    cout << endl;
+    std::for_each(begin(v), end(v), [](int n) { cout << n << " - "; });
+    cout << "\n";
+    std::for_each(v.begin(), v.end(), Func);
+    cout << "\n\n";
+
+    int id;
+    string name;
+    cout << "학번과 이름을 입력하세요:\n\u27A5 ";
+    cin >> id >> name;
+    int a;
+    int b;
+    cout << "삼각형의 밑변과 높이를 입력하세요:\n\u27A5 ";
+    cin >> a >> b;
+    auto k = [a, b](bool tf) -> int { return tf ? a * b / 2 : a * b; };
+    cout << "학번 " << id << ", 이름 " << name << endl;
+    cout << "밑변 " << a << ", 높이 " << b << " 인 삼각형의 넓이는 " << k(true) << " 입니다." << endl;
+    cout << "밑변 " << a << ", 높이 " << b << " 인 사각형의 넓이는 " << k(false) << " 입니다." << endl;
+
+    std::for_each(v.begin(), v.end(), PrintFunc());
+    cout << "\n";
+    auto print_v = [](int n) { if(n%2 == 0) cout << n << " "; };
+    auto predicate = [](int n) -> bool { return n % 2 == 0; };
+    std::for_each(v.begin(), v.end(), [predicate](int n) { if(predicate(n)) cout << n << " "; });
+    cout << "\n";
+    int lastResult = -1;
+    auto last = [&lastResult](int n) { lastResult = n; cout << n << ", "; };
+
+    std::for_each(v.begin(), v.end(), last);
+    cout << "\n";
+    cout << "Last Result: " << lastResult << endl;
+    cout << "\n";
+
+    // Chapter 2 : Capturing Variables
+    vector<int> v2{1, 2, 3, 4, 5};
+    int ref = -1;
+    int ref2 = -1;
+
+    // 복사본을 전달하므로 읽기 전용을 변경가능하게 하려면 mutable 사용하나
+    // 스코프를 벗어 나면 변경된 값이 사라지므로, 참조로 전달하는 것이 좋다.
+    // mutable : 외부 변수를 변경할 수 있도록 한다. or `&` 사용
+    // auto pr = [ref, ref2](int n) mutable { // -1
+    // auto pr = [=](int n) mutable { // 값으로 전달, 위와 동일한 결과 -1
+    auto pr = [&](int n) { // 참조로 전달
+        ref = n;
+        ref2 = n;
+        cout << n << ",";
+    };
+
+    for_each(v2.begin(), v2.end(), pr);
+    cout << endl
+         << ref << endl;
+    cout << ref2 << endl;
+
+    // With Global Variables : 전역변수(정적 포함)는 참조로 전달하지 않아도 된다.
+    auto pr2 = [=](int n) {
+        global = n;
+        cout << n << ",";
+    };
+
+    for_each(v2.begin(), v2.end(), pr2);
+
+    cout << endl
+         << "Global: "
+         << global << endl;
+}
+
 void Menu();
 
 int main(int argc, char *argv[])
@@ -183,17 +306,22 @@ int main(int argc, char *argv[])
 
     while (true) {
         switch (choice) {
-            case 0: exit(0);
-            case 1: Array(); break;         // [ 배열 ]
-            case 2: NewInitialize(); break; // [ 새로운 초기화 규칙 ]
+            case 0: {
+                system("clear");
+                exit(0);
+            }
+            case 1: Array(); break;                               // [ 배열 ]
+            case 2: NewInitialize(); break;                       // [ 새로운 초기화 규칙 ]
             case 3:
                 FloatToBinary(3.14);
-                break;                      // [ 실수를 2진수로 변환 ]
-            // case 4 : StandardDeviation(vector<int>{1, 2}); break; // [ 표준편차 ]
+                break;                                            // [ 실수를 2진수로 변환 ]
+            case 4 : StandardDeviation(vector<int>{1, 2}); break; // [ 표준편차 ]
+            case 5 : Lambda(); break;                             // [ 람다식 ]
             default: exit(55); break;
         }
 
         cout << endl
+             << endl
              << "\u2728 \033[33m실행 메뉴 선택\033[0m \u2728"
              << "\n";
         Menu();
@@ -213,5 +341,5 @@ void Menu()
     cout << "2. New Initialize" << endl;
     cout << "3. FloatToBinary" << endl;
     cout << "4. 표준편차" << endl;
-    cout << "5. ..." << endl;
+    cout << "5. 람다식" << endl;
 }
