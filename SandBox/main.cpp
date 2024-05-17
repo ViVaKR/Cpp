@@ -1,9 +1,10 @@
 
-#include <array>
-#include <cfloat>
-
+#include "./headers/Points.h"
+#include "./headers/StackEx.h"
 #include <algorithm>
+#include <array>
 #include <bitset>
+#include <cfloat>
 #include <iostream>
 #include <numeric>
 #include <regex>
@@ -18,7 +19,6 @@ using std::array;
 using std::cin;
 using std::cout;
 using std::endl;
-using std::initializer_list;
 
 void FloatToBinary(float num)
 {
@@ -264,7 +264,7 @@ void Lambda()
     cout << "\n";
 
     // Chapter 2 : Capturing Variables
-    vector<int> v2{1, 2, 3, 4, 5};
+    vector<int> v2 = {1, 2, 3, 4, 5};
     int ref = -1;
     int ref2 = -1;
 
@@ -310,13 +310,44 @@ int main(int argc, char *argv[])
                 system("clear");
                 exit(0);
             }
-            case 1: Array(); break;                               // [ 배열 ]
-            case 2: NewInitialize(); break;                       // [ 새로운 초기화 규칙 ]
+            case 1: Array(); break;                              // [ 배열 ]
+            case 2: NewInitialize(); break;                      // [ 새로운 초기화 규칙 ]
             case 3:
                 FloatToBinary(3.14);
-                break;                                            // [ 실수를 2진수로 변환 ]
-            case 4 : StandardDeviation(vector<int>{1, 2}); break; // [ 표준편차 ]
-            case 5 : Lambda(); break;                             // [ 람다식 ]
+                break;                                           // [ 실수를 2진수로 변환 ]
+            case 4: StandardDeviation(vector<int>{1, 2}); break; // [ 표준편차 ]
+            case 5: Lambda(); break;                             // [ 람다식 ]
+            case 6: {
+                Points p(4, 5), p1(2, 3), p2(2, 3);
+
+                if (p1 == p2) {
+                    cout << "같다" << endl;
+                } else {
+                    cout << "다르다" << endl;
+                }
+                p.operator++();
+                cout << "p: " << p.getX() << " " << p.getY() << endl;
+
+            }; break; // [ 연산자 오버로딩 ]
+            case 7: {
+                // TODO
+
+                cout << "템플릿" << endl;
+
+                // cout << t.getX() << " " << t.getY() << endl;
+
+            } break; // [ 템플릿 ]
+            case 8: {
+                // TODO
+
+                cout << "*** 스택 ***" << endl;
+                StackEx stack(5); // 스택 객체 생성
+                while (true) {
+                    system("clear");
+                }
+
+                // cout << t.getX() << " " << t.getY() << endl;
+            } break;
             default: exit(55); break;
         }
 
@@ -342,4 +373,5 @@ void Menu()
     cout << "3. FloatToBinary" << endl;
     cout << "4. 표준편차" << endl;
     cout << "5. 람다식" << endl;
+    cout << "6. 연산자 오버로딩" << endl;
 }

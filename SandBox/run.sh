@@ -8,7 +8,7 @@ $(which clang++) \
 -g main.cpp \
 -o ./bin/SandBoxEx \
 && \
-./bin/SandBoxEx $1 $2 $3 $4 $5 $6 $7 $8 $9
+./bin/SandBox $1 $2 $3 $4 $5 $6 $7 $8 $9
 
 # cmake --build ./build && ./bin/SandBox
 
