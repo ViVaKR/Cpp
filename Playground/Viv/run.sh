@@ -1,5 +1,5 @@
 #! /usr/bin/env zsh
 
 make clean && make
-clear
+# clear
 ./bin/VivRunner $1
