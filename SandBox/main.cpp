@@ -3,25 +3,15 @@
 #include <array>
 #include <bitset>
 #include <cfloat>
-#include <initializer_list> // Include the <initializer_list> header
-#include <initializer_list>
-
+#include <filesystem>
+#include <fstream>
 #include <iostream>
 #include <numeric>
 #include <regex>
-#include <stdint.h>
-#include <stdlib.h>
+#include <streambuf>
 #include <string.h>
 #include <string>
 #include <vector>
-
-using std::array;
-using std::cin;
-using std::cout;
-using std::endl;
-using std::initializer_list;
-using std::string;
-using std::vector;
 
 using namespace std;
 
@@ -93,8 +83,10 @@ void NewInitialize()
     cout << "\n";
 
     // auto : 자동으로 타입을 추론, 초기화 값에 따라 타입이 결정된다. type inference
-    auto x{3};          // int
-    auto y = {1, 2, 3}; // initializer_list<int>
+    auto x{3}; // int
+
+    auto y = {1, 2, 3};
+
     cout << typeid(x).name() << endl;
     cout << typeid(y).name() << endl;
 }
@@ -227,7 +219,7 @@ void Lambda()
     auto j = [](int a, int b) -> int { return a % b; };
     cout << j(5, 2) << endl;
 
-    vector<int> v = {1, 2, 3, 4, 5};
+    std::vector<int> v{1, 2, 3, 4, 5};
     for (auto &item : v) {
         cout << item << ", ";
     }
@@ -368,6 +360,12 @@ int main(int argc, char *argv[])
                     }
                 }
             } break; // [ 스택 ]
+            case 9: {
+                int a;
+                cout << "Enter a number: ";
+                cin >> a;
+                cout << "The number is: " << a << endl;
+            } break;
             default: exit(55); break;
         }
 

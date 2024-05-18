@@ -19,6 +19,9 @@ int main(int argc, const char * argv[]) {
     cout << "A = " << t_int.GetA() << endl;
     cout << "B = " << t_int.GetB() << endl;
     
+    
+    auto x = { 1, 2, 3};
+    
     cout << " " << sum << ", tempate: " << Adder(27, 13) << endl;
 
     return 0;
