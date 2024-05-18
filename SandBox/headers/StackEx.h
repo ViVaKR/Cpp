@@ -16,6 +16,8 @@ class StackEx
     int peek();
     bool isEmpty();
     bool isFull();
+    void Clear();
+    void PrintStack();
     ~StackEx();
 };
 

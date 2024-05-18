@@ -1,10 +1,11 @@
-
-#include "./headers/Points.h"
 #include "./headers/StackEx.h"
 #include <algorithm>
 #include <array>
 #include <bitset>
 #include <cfloat>
+#include <initializer_list> // Include the <initializer_list> header
+#include <initializer_list>
+
 #include <iostream>
 #include <numeric>
 #include <regex>
@@ -14,11 +15,15 @@
 #include <string>
 #include <vector>
 
-using namespace std;
 using std::array;
 using std::cin;
 using std::cout;
 using std::endl;
+using std::initializer_list;
+using std::string;
+using std::vector;
+
+using namespace std;
 
 void FloatToBinary(float num)
 {
@@ -222,7 +227,7 @@ void Lambda()
     auto j = [](int a, int b) -> int { return a % b; };
     cout << j(5, 2) << endl;
 
-    std::vector<int> v = {11, 22, 33, 44, 55};
+    vector<int> v = {1, 2, 3, 4, 5};
     for (auto &item : v) {
         cout << item << ", ";
     }
@@ -264,7 +269,6 @@ void Lambda()
     cout << "\n";
 
     // Chapter 2 : Capturing Variables
-    vector<int> v2 = {1, 2, 3, 4, 5};
     int ref = -1;
     int ref2 = -1;
 
@@ -279,7 +283,6 @@ void Lambda()
         cout << n << ",";
     };
 
-    for_each(v2.begin(), v2.end(), pr);
     cout << endl
          << ref << endl;
     cout << ref2 << endl;
@@ -289,8 +292,6 @@ void Lambda()
         global = n;
         cout << n << ",";
     };
-
-    for_each(v2.begin(), v2.end(), pr2);
 
     cout << endl
          << "Global: "
@@ -302,7 +303,7 @@ void Menu();
 int main(int argc, char *argv[])
 {
     int choice(0);
-    if (argc >= 2) choice = stoi(argv[1]);
+    if (argc >= 2) choice = std::stoi(argv[1]);
 
     while (true) {
         switch (choice) {
@@ -310,44 +311,63 @@ int main(int argc, char *argv[])
                 system("clear");
                 exit(0);
             }
-            case 1: Array(); break;                              // [ 배열 ]
-            case 2: NewInitialize(); break;                      // [ 새로운 초기화 규칙 ]
+            case 1: Array(); break;         // [ 배열 ]
+            case 2: NewInitialize(); break; // [ 새로운 초기화 규칙 ]
             case 3:
                 FloatToBinary(3.14);
-                break;                                           // [ 실수를 2진수로 변환 ]
-            case 4: StandardDeviation(vector<int>{1, 2}); break; // [ 표준편차 ]
-            case 5: Lambda(); break;                             // [ 람다식 ]
+                break;                      // [ 실수를 2진수로 변환 ]
+
+            case 4: {
+                // TODO
+                Array();
+            }; break;                // [ 표준편차 ] Use initializer list without explicitly creating a vector
+            case 5: Lambda(); break; // [ 람다식 ]
             case 6: {
-                Points p(4, 5), p1(2, 3), p2(2, 3);
-
-                if (p1 == p2) {
-                    cout << "같다" << endl;
-                } else {
-                    cout << "다르다" << endl;
-                }
-                p.operator++();
-                cout << "p: " << p.getX() << " " << p.getY() << endl;
-
-            }; break; // [ 연산자 오버로딩 ]
+                // TODO
+            }; break;             // [ 연산자 오버로딩 ]
             case 7: {
-                // TODO
-
                 cout << "템플릿" << endl;
-
-                // cout << t.getX() << " " << t.getY() << endl;
-
-            } break; // [ 템플릿 ]
+            } break;              // [ 템플릿 ]
             case 8: {
-                // TODO
-
                 cout << "*** 스택 ***" << endl;
                 StackEx stack(5); // 스택 객체 생성
                 while (true) {
-                    system("clear");
+                    cout << "\n\t\t *** 스택 ***\n";
+                    cout << "1. Push\t2. Pop\t3. Print\t4. Clear\\t5. Exit\n";
+                    cout << "Enter your choice: ";
+                    int choice;
+                    cin >> choice;
+                    switch (choice) {
+                        case 1: {
+                            int data;
+                            cout << "Enter data: ";
+                            cin >> data;
+                            stack.push(data);
+                            stack.PrintStack();
+                        } break;
+                        case 2: {
+                            int data = stack.pop();
+                            if (data != -1) {
+                                cout << "Popped data: " << data << endl;
+                            }
+                            stack.PrintStack();
+                        } break;
+                        case 3: {
+                            stack.PrintStack();
+                        } break;
+                        case 4: {
+                            stack.Clear();
+                            stack.PrintStack();
+                        } break;
+                        case 5: {
+                            exit(0);
+                        } break;
+                        default: {
+                            cout << "Invalid choice" << endl;
+                        } break;
+                    }
                 }
-
-                // cout << t.getX() << " " << t.getY() << endl;
-            } break;
+            } break; // [ 스택 ]
             default: exit(55); break;
         }
 
