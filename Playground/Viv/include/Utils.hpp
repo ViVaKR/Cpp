@@ -21,6 +21,7 @@ class Utils
 
     T Add();
 
+    void ToBinary(int num);
     ~Utils() {}
 };
 
