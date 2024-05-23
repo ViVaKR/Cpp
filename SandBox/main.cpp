@@ -292,8 +292,26 @@ void Lambda()
 
 void Menu();
 
+// 벡터내 중복제거
+vector<unsigned> findDup(vector<unsigned int> &num)
+{
+    vector<unsigned int> x;
+    for (int i = 0; i < num.size(); i++) {
+        if (binary_search(x.begin(), x.end(), i)) continue;
+        for (int j = 0; j < num.size(); j++) {
+            if (j == i) break;
+            if (num[i] == num[j]) {
+                cout << "Duplicate number in A: " << num[i] << endl;
+                num.erase(num.begin());
+                x.push_back(num[i]);
+            }
+        }
+    }
+    return x;
+}
 int main(int argc, char *argv[])
 {
+
     int choice(0);
     if (argc >= 2) choice = std::stoi(argv[1]);
 
@@ -365,6 +383,22 @@ int main(int argc, char *argv[])
                 cout << "Enter a number: ";
                 cin >> a;
                 cout << "The number is: " << a << endl;
+            } break;
+
+            case 10: {
+                vector<unsigned int> A;
+
+                for (int i = 0; i < 10; i++) {
+                    A.push_back(i);
+                    A.push_back(i);
+                    A.push_back(i);
+                }
+
+                vector<unsigned> z = findDup(A);
+                // 이부분이 오류가 납니다
+                for (int i = 0; i < z.size(); i++) {
+                    cout << z[i] << endl;
+                }
             } break;
             default: exit(55); break;
         }

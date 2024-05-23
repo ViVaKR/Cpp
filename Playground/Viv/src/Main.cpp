@@ -1,6 +1,7 @@
 #include "../include/TestTemp.hpp"
 #include "../include/Utils.hpp"
 #include "../include/io.hpp"
+#include "Calculator.cpp"
 #include "Mathematics.cpp"
 #include "Student.cpp"
 #include <algorithm>
@@ -256,6 +257,52 @@ int main(int argc, char const *argv[])
                 utils.ToBinary(12);
                 cout << "\n";
             } break; // [ Print Binary ]
+
+            case 12: {
+                string s = "123456789";
+                /*
+                 -->   template <class _InputIterator, __enable_if_t<__has_input_iterator_category<_InputIterator>::value, int> = 0>
+                 -->   _LIBCPP_HIDE_FROM_ABI _LIBCPP_CONSTEXPR_SINCE_CXX20 basic_string(_InputIterator __first, _InputIterator __last)
+                 -->   : __r_(__default_init_tag(), __default_init_tag()) {
+                 -->   __init(__first, __last);
+                    }
+
+                */
+
+                // string class 에서 반복을 구현하기 위하여 해당 주소를 인자로 전달한다.
+                cout
+                    << stoi(string(s.begin() + 5, s.end() + 1))    // begin() 에서 반환하는 포인터 그 자체를 반환 (for Iterator)
+                    << endl
+                    << stoi(string(&s.front() + 5, &s.back() + 1)) // front() 에서 반환하는 값에서  참조 연산을 하여 전달 (pass by reference)
+                    << endl;
+
+            } break;
+
+            case 13: {
+                TestTemp<int> arr;
+                for (size_t i = 0; i < 5; i++) {
+                    arr.SetArray(i, 0);
+                }
+
+                arr.Increase(0, 10).Increase(1, 12).Increase(2, 13).Increase(3, 14).Increase(4, 15);
+
+                for (int i = 0; i < 5; i++) {
+                    cout << arr.GetElem(i) << endl;
+                }
+            } break;
+
+            case 14: {
+                cout << "\033[33m";
+                cout << "\u2728 [ Mathematics With Template Class Demo ] \u2728" << endl;
+                int a = 45;
+                int b = 15;
+                Calculator<int> math(a, b);                                               // 객체 생성
+                cout << "\u2766 " << a << " \u002B " << b << " = " << math.Add() << endl; // 덧셈
+                cout << "\u2766 " << a << " \u2212 " << b << " = " << math.Sub() << endl; // 뺄셈
+                cout << "\u2766 " << a << " \u00D7 " << b << " = " << math.Mul() << endl; // 곱셈
+                cout << "\u2766 " << a << " \u00F7 " << b << " = " << math.Div() << endl; // 나눗셈
+                cout << "\033[0m";
+            }
 
             default:
                 exit(UINT8_MAX);
