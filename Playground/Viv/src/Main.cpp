@@ -1,3 +1,4 @@
+#include "../include/RationalNumber.hpp"
 #include "../include/TestTemp.hpp"
 #include "../include/Utils.hpp"
 #include "../include/io.hpp"
@@ -303,6 +304,49 @@ int main(int argc, char const *argv[])
                 cout << "\u2766 " << a << " \u00F7 " << b << " = " << math.Div() << endl; // 나눗셈
                 cout << "\033[0m";
             }
+
+            case 15: {
+
+                RationalNumber r1(7, 3);
+                RationalNumber r2(1, 3);
+
+                RationalNumber _add = r1 + r2;
+                RationalNumber _sub = r1 - r2;
+                RationalNumber _mul = r1 * r2;
+                RationalNumber _div = r1 / r2;
+
+                string first = format("{}/{}", r1.GetNumberator(), r1.GetDemoninator());
+                string second = format("{}/{}", r2.GetNumberator(), r2.GetDemoninator());
+
+                cout << "덧셈, 뺄셈, 곱셈, 나눗셈" << endl;
+                _add.Print(format("{} + {}", first, second));
+                _sub.Print(format("{} - {}", first, second));
+                _mul.Print(format("{} * {}", first, second));
+                _div.Print(format("{} / {}", first, second));
+                cout << endl;
+                // 비교 연산자
+                cout << "- 2. 비교 연산자 ( == != ) -" << endl;
+                RationalNumber r3(7, 3);
+                string equal = r1 == r3 ? " == " : " != ";
+                string not_equal = r1 != r3 ? " != " : " == ";
+                cout << "7/3 " << equal << " 7/3" << endl;
+                cout << "7/3 " << not_equal << " 7/3" << endl;
+
+                // 비교 연산자 <= >=
+                cout << "- 3. 비교 연산자 ( <= >= ) -" << endl;
+                RationalNumber r4(7, 4);
+                RationalNumber r5(7, 3);
+                string is_less_equal = r4 <= r5 ? " <= " : " >= ";
+                cout << "7/4 (" << 7.0 / 4.0 << ") " << is_less_equal << " (" << 7.0 / 3.0 << ") 7/3 " << endl;
+
+                // 비교 연산자 > <
+                cout << "- 4. 비교 연산자 ( < > ) -" << endl;
+                RationalNumber r6(4, 5);
+                RationalNumber r7(3, 4);
+                string is_less = r6 < r7 ? " < " : " > ";
+                cout << "4/5 (" << 4.0 / 5.0 << ") " << is_less << " (" << 3.0 / 4.0 << ") 3/4 " << endl;
+
+            } break;
 
             default:
                 exit(UINT8_MAX);
