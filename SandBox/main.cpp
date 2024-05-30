@@ -1,4 +1,5 @@
 #include "./headers/StackEx.h"
+#include "./src/Circle.cpp"
 #include <algorithm>
 #include <array>
 #include <bitset>
@@ -8,6 +9,7 @@
 #include <iostream>
 #include <numeric>
 #include <regex>
+#include <sstream>
 #include <streambuf>
 #include <string.h>
 #include <string>
@@ -400,6 +402,67 @@ int main(int argc, char *argv[])
                     cout << z[i] << endl;
                 }
             } break;
+
+            case 11: {
+                Circle waffle(30);
+                waffle.setRadius(50);
+                waffle.increase();
+                cout << "waffle의 반지름은 " << waffle.getRadius() << endl;
+                cout << "waffle의 넓이는 " << waffle.getArea() << endl;
+            }
+            case 12: {
+                // TODO
+                int num = 5; // 0000 0101
+                num &= ++num;
+                printf("++num -> %d\n", num);
+
+                num &= num++;
+                printf("num++ -> %d\n", num);
+
+            } break;
+
+            case 13: {
+                //
+
+                std::ifstream file("./assets/data.csv");
+
+                if (!file.is_open()) {
+                    std::cerr << "파일을 열 수 없습니다." << endl;
+                    exit(1);
+                }
+                int size = 10;
+                // Define 2D array to store data
+                std::vector<std::vector<string>> data(size);
+
+                string cursor;
+                int row = 0;
+
+                // Store the CSV data from the CSV file to the 2D array
+                while (std::getline(file, cursor)) {
+                    if (row >= size)
+                        data.resize(size += 10);
+
+                    std::stringstream line(cursor);
+                    std::string cell;
+                    while (std::getline(line, cell, ',')) {
+                        data[row].push_back(cell);
+                    }
+                    row++;
+                }
+                data.resize(row);
+
+                // Display the data
+                for (int i = 0; i < data.size(); i++) {
+                    for (int j = 0; j < data[i].size(); j++)
+                        cout << data[i][j] << " ";
+
+                    cout << endl;
+                }
+
+                file.close();
+                int64_t t = INT_MIN;
+                cout << "int min -> " << (INT_MIN) << ", " << (t - 1) << ", " << (t > 0) << endl;
+            }
             default: exit(55); break;
         }
 
