@@ -9,6 +9,7 @@
 #include "UserPlay.hpp"
 #include <iostream>
 #include <vector>
+
 class Game
 {
   private:
@@ -19,5 +20,6 @@ class Game
     Game(int size);
     void SwitchPlayer();
     void Play();
+    ~Game() {}
 };
 #endif

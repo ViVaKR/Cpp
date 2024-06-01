@@ -1,5 +1,5 @@
 CC = clang++
-CFLAGS = -Wall -g -std=c++20
+CFLAGS = -Wall -g -std=c++23
 INCLUDE = -IInclude/
 
 SRC_DIR = src
