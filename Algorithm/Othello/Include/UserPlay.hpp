@@ -2,6 +2,7 @@
 #define USERPLAY_HPP
 #include "Board.hpp"
 #include "BoardCheck.hpp"
+#include "Common.hpp"
 #include <iostream>
 class UserPlay
 {

@@ -15,18 +15,9 @@ int main(int argc, char *argv[])
     // common.ClearScreen();
     Common::ClearScreen();
 
-    for (int i = 1; i < 256; i++) {
-        std::string ansi = std::format("\033[38;5;{}m", i - 1);
-        std::string text = std::format("[38;5;{:-3}] ", i - 1);
-        std::cout << ansi << text;
-        if (i % 12 == 0)
-            std::cout << std::endl;
-    }
-    std::cout << "\x1b[0m\n";
-
     // Print the welcome message
-    std::cout << "\033[1;95m"
-              << "\t\t\u269E Welcome to the Othello Game \u269F"
+    std::cout << Common::AnsiColor(207)
+              << "\t\t\tu269E OTHELLO \u269F"
               << "\033[0m"
               << std::endl;
 
@@ -37,16 +28,15 @@ int main(int argc, char *argv[])
 
     // Get the board size from the user
     do {
-        std::cout << "\033[1;94m \u276A Enter the board size, Between ";
+        std::cout << std::endl;
+        std::cout << Common::AnsiColor(155) << "\u26A6 보드크기 ( ";
         std::cout << common.GetLow(); // Get the low value (6)
-        std::cout << " and ";
+        std::cout << " \u2620 ";
         std::cout << common.GetHigh();
-        std::cout << " \u276B";
-        std::cout << "\033[0m\n";
+        std::cout << " )\n";
 
         // Get the board size from the user
-        std::cout << "\033[1;94m"
-                  << "\u26A9 ";
+        std::cout << "\u26A9 \033[0m";
 
         // clear the input buffer
         std::cin.clear();
@@ -74,6 +64,7 @@ int main(int argc, char *argv[])
 
     // --> (1) Start the game
     game.Play();
+    // common.StartGame(size);
 
     return 0;
 }

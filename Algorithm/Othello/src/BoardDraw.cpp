@@ -3,7 +3,7 @@
 /// @param board 보드
 void BoardDraw::Print(const Board &board)
 {
-    // Clear the screen
+    // 스크린 지우기
     Common::ClearScreen();
 
     // Print the welcome message
@@ -12,16 +12,17 @@ void BoardDraw::Print(const Board &board)
               << Common::AnsiColor(207)
               << "\u2681\033[0m" << space;
 
-    // Print column numbers
+    // 열 번호 출력
     for (int i = 0; i < board.size; ++i)
         std::cout << "\033[1;94m" << i << "\033[0m" << space;
 
     std::cout << "\n\n";
 
-    // Print board
+    // 보드 출력
     for (int y = 0; y < board.size; ++y) {
         std::cout << space << "\033[1;94m" << y << "\033[0m" << space;
 
+        // 플레이어의 착점 좌표 출력
         for (int x = 0; x < board.size; ++x) {
             std::string symbol =
                 (board.grid[y][x] == Player::USER)
@@ -36,8 +37,9 @@ void BoardDraw::Print(const Board &board)
 
     sleep(1);
 
+    // 보드 하단 라인 출력
     int len = board.size * 2 + 1;
-    std::string c = "\u2704 ";
+    std::string c = "\u269A ";
     std::cout << space;
     std::cout << "\033[1;95m";
     std::fill_n(std::ostream_iterator<std::string>(std::cout), len, c);

@@ -3,31 +3,41 @@
 
 void BoardCheck::PlaceMark(Board &board, int x, int y, Player player)
 {
+    // 그리드에 플레이어의 착점 위치를 저장
     board.grid[y][x] = player;
+
+    // 상대 플레이어
     Player opponent = (player == Player::USER) ? Player::COMPUTER : Player::USER;
+
+    // 8방향 탐색
     int dx[] = {-1, 0, 1, -1, 1, -1, 0, 1};
     int dy[] = {-1, -1, -1, 0, 0, 1, 1, 1};
     // (-1, -1), (0, -1), (1, -1), (-1, 0), (1, 0), (-1, 1), (0, 1), (1, 1)
     // 좌하, 하, 우하, 좌, 우, 좌상, 상, 우상
-    for (int i = 0; i < 8; ++i) {
+    for (int i = 0; i < 8; ++i) { // 8방향으로 순차적으로 쭈욱 직선 탐색
+                                  // (1) 즉, 8방향으로 직선으로 탐색해 가면서 상대 플레이어가 있으면 표시 해 놓는다.
+                                  // (2) 그리고 아군 돌이 나오면, 그 사이에 있는 상대 돌을 아군 돌로 뒤집는다.
 
+        // 뒤집어야 하는 돌의 좌표를 저장하는 벡터
         std::vector<std::pair<int, int>> toFlip;
 
-        int nx = x + dx[i];
-        int ny = y + dy[i];
+        int nx = x + dx[i];                                                // x 좌표
+        int ny = y + dy[i];                                                // y 좌표
 
-        while (nx >= 0 && nx < board.size && ny >= 0 && ny < board.size) {
+        while (nx >= 0 && nx < board.size && ny >= 0 && ny < board.size) { // 보드의 범위를 벗어나지 않는 동안
 
-            if (board.grid[ny][nx] == opponent) toFlip.push_back({nx, ny});
+            if (board.grid[ny][nx] == opponent)                            // 이동한 좌표에 상대 플레이어가 있는 경우
+                toFlip.push_back({nx, ny});                                // 뒤집을대상 상대 돌의 좌표를 저장
 
-            else if (board.grid[ny][nx] == player) {
-                for (auto [fx, fy] : toFlip)
-                    board.grid[fy][fx] = player;
+            else if (board.grid[ny][nx] == player) {                       // 이동한 좌표에 아군이 있는 경우
+                for (auto [fx, fy] : toFlip)                               // 뒤집을 대상 상대 돌의 좌표를 하나씩 꺼내서
+                    board.grid[fy][fx] = player;                           // 아군 돌로 뒤집는다.
                 break;
-            } else break;
+            } else
+                break;
 
-            nx += dx[i];
-            ny += dy[i];
+            nx += dx[i]; // 다음 X 좌표로 이동
+            ny += dy[i]; // 다음 Y 좌표로 이동
         }
     }
 }
@@ -76,7 +86,7 @@ bool BoardCheck::IsValidMove(const Board &board, int x, int y, Player player)
 
     // 8방향 탐색
     // x : 착점한 가로 좌표, y : 착점한 세로 좌표
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < 8; ++i) {
 
         // 상대 플레이어가 있는지 확인
         // 상대 플레이어가 있으면 true
@@ -87,18 +97,18 @@ bool BoardCheck::IsValidMove(const Board &board, int x, int y, Player player)
         bool hasOpponent = false;
 
         // 보드의 범위를 벗어나지 않는 동안
-        bool check = nx >= 0 && nx < board.size && ny >= 0 && ny < board.size;
-
-        while (check) {
+        while (nx >= 0 && nx < board.size && ny >= 0 && ny < board.size) {
 
             // 상대 플레이어가 있는지 확인
-            check = nx >= 0 && nx < board.size && ny >= 0 && ny < board.size;
-
-            if (board.grid[ny][nx] == opponent) hasOpponent = true; // 상대 플레이어가 있으면 true
-            else if (board.grid[ny][nx] == player) {                // 아군이 나오면
-                if (hasOpponent) return true;                       // 직전 좌표에 상대 플레이어가 있다는 표식이 있고 현재 이동한 좌표가 아군이면 true 로 리턴 (유효한 움직임, 최종 유효한 움직임이 됨)
-                else break;                                         // 상대 플레이어가 없으면 break 하고 다음 좌표로 이동
-            } else break;                                           // 빈 공간이면 break 하고 다음 좌표로 이동
+            if (board.grid[ny][nx] == opponent)
+                hasOpponent = true;
+            else if (board.grid[ny][nx] == player) { // 아군이 나오면
+                if (hasOpponent)
+                    return true;                     // 직전 좌표에 상대 플레이어가 있다는 표식이 있고 현재 이동한 좌표가 아군이면 true 로 리턴 (유효한 움직임, 최종 유효한 움직임이 됨)
+                else
+                    break;                           // 상대 플레이어가 없으면 break 하고 다음 좌표로 이동
+            } else
+                break;                               // 빈 공간이면 break 하고 다음 좌표로 이동
 
             // 다음 좌표로 이동
             // ( 예를 들어 )
@@ -109,13 +119,6 @@ bool BoardCheck::IsValidMove(const Board &board, int x, int y, Player player)
             nx += dx[i];
             ny += dy[i];
         }
-
-        // if (check) {
-        //     hasOpponent = board.grid[ny][nx] == opponent;
-        //     if (board.grid[ny][nx] == player) {
-        //         if (hasOpponent) return true;
-        //     }
-        // }
     }
     return false;
 }

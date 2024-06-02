@@ -17,9 +17,17 @@ class Game
     Player player;
 
   public:
+    Game();
     Game(int size);
-    void SwitchPlayer();
+    void SwitchPlayer(Player &player);
+    void Resize(int n);
     void Play();
-    ~Game() {}
+    void MakeDecision();
+    void GameOver();
+    ~Game()
+    {
+        delete &board;
+        delete &player;
+    }
 };
 #endif

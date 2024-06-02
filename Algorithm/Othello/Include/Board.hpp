@@ -10,6 +10,7 @@ class Board
     int size;
     std::vector<std::vector<Player>> grid;
     Board(int n);
+    void Resize(int n);
     ~Board() {}
 };
 #endif

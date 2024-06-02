@@ -1,5 +1,4 @@
 #include "../Include/UserPlay.hpp"
-
 /// @brief 에러 메시지 출력
 /// @param msg 메시지
 /// @param check 체크
@@ -27,15 +26,28 @@ std::pair<int, int> UserPlay::GetUserMove(Board &board)
     while (!check) {
 
         // Print the message to the user
-        std::cout << "\u2620 "
-                  << "Enter Your Move ";
-        std::cout << "(0, 0) ~ "
-                  << "(" << board.size - 1 << ", " << board.size - 1 << ")";
+        std::cout << "\u27A6 착점양보 \u279C ( " << board.size + 20 << " " << board.size + 20 << " )" << std::endl;
+        std::cout << "\u27A6 게임종료 \u279C ( " << board.size + 10 << " " << board.size + 10 << " )" << std::endl;
+
+        std::cout << Common::AnsiColor(205) << "\u26A6 좌표입력 \u279C (  x y  )\033[0m";
         std::cout << std::endl;
-        std::cout << "( \033[31m\u2716\033[0m ) \u269E x y \u269F";
-        std::cout << std::endl;
-        std::cout << "\u26A9 ";
+
+        std::cout << Common::AnsiColor(196) << "\u26A9 \033[0m";
         std::cin >> x >> y;
+
+        if (x == board.size + 20 && y == board.size + 20) {
+            std::cout << "플레이 권을 상대방에게 양보합니다.\n";
+            return {board.size + 20, board.size + 20};
+        }
+
+        if (x == board.size + 10 && y == board.size + 10) {
+            std::cout << "게임을 종료합니다 아무키나 누르세요 ...\n";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cin.get();
+
+            exit(0);
+        }
 
         // Check if the input is valid (integer and in range 0 ~ board.size - 1)
         if (!std::cin.good()) {
