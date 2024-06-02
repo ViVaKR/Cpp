@@ -46,8 +46,16 @@ bool BoardCheck::HasValidMove(const Board &board, Player player)
 {
     for (int y = 0; y < board.size; ++y) {
         for (int x = 0; x < board.size; ++x) {
-            if (IsValidMove(board, x, y, player))
+            if (IsValidMove(board, x, y, player)) {
+                if (player == Player::USER) {
+                    std::cout << Common::AnsiColor(196)
+                              << "USER : 유효 좌표 (x = "
+                              << x << ", y = "
+                              << y << ", )\033[0m\n";
+                    Common::Sleep(500);
+                }
                 return true;
+            }
         }
     }
     return false;

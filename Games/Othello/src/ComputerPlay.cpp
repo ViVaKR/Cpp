@@ -1,8 +1,8 @@
 #include "../Include/ComputerPlay.hpp"
 
-/// @brief Get the best move for the computer
-/// @param board The game board
-/// @return The best move for the computer
+/// @brief 컴퓨터가 가장 좋은 수를 찾는 함수.
+/// @param board 게임판
+/// @return 가장 좋은 수의 좌표
 std::pair<int, int> ComputerPlay::GetBestMove(Board &board)
 {
     for (int y = 0; y < board.size; ++y) {

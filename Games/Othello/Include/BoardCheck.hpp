@@ -2,6 +2,7 @@
 #ifndef BOARD_CHECK_HPP
 #define BOARD_CHECK_HPP
 #include "./Board.hpp"
+#include "./Common.hpp"
 #include "./Player.hpp"
 
 class BoardCheck
