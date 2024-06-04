@@ -5,7 +5,7 @@ INCLUDE = -IInclude/
 
 SRC_DIR = src
 OBJ_DIR = obj
-TARGET = bin/Othello
+TARGET = bin/Dijkstra
 
 SRCS = $(notdir $(wildcard $(SRC_DIR)/*.cpp))
 OBJS = $(SRCS:.cpp=.o)
@@ -28,10 +28,3 @@ clean:
 	@echo "Cleaned up. complete"
 
 -include $(DEPS)
-
-test:
-	@if [[ 3 == 1 ]]; then \
-		echo dev environment; \
-	else \
-		echo not dev environment; \
-	fi
