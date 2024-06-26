@@ -19,6 +19,6 @@ int main()
     // Visit
     // Distance
 
-    cout << "Hello, World!" << std::endl;
+    cout << "준비중..." << std::endl;
     return 0;
 } // namespace stdint main()
