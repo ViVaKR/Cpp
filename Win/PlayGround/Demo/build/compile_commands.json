@@ -1,8 +1,0 @@
-[
-{
-  "directory": "C:/GitProjects/Cpp/Win/PlayGround/Demo/build",
-  "command": "C:\\MSYS\\clangarm64\\bin\\c++.exe -g -DDEBUG -o CMakeFiles\\WinEx.dir\\src\\Main.cpp.obj -c C:\\GitProjects\\Cpp\\Win\\PlayGround\\Demo\\src\\Main.cpp",
-  "file": "C:\\GitProjects\\Cpp\\Win\\PlayGround\\Demo\\src\\Main.cpp",
-  "output": "CMakeFiles\\WinEx.dir\\src\\Main.cpp.obj"
-}
-]

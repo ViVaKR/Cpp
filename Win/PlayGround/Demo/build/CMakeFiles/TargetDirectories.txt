@@ -1,3 +1,0 @@
-C:/GitProjects/Cpp/Win/PlayGround/Demo/build/CMakeFiles/WinEx.dir
-C:/GitProjects/Cpp/Win/PlayGround/Demo/build/CMakeFiles/edit_cache.dir
-C:/GitProjects/Cpp/Win/PlayGround/Demo/build/CMakeFiles/rebuild_cache.dir

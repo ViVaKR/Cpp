@@ -1,2 +1,0 @@
-
-.\bin\WinEx.exe
