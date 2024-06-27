@@ -1,0 +1,489 @@
+{
+    "window.zoomLevel": 1.5,
+    "security.workspace.trust.enabled": false,
+    "http.proxyStrictSSL": false,
+    "http.proxyAuthorization": null,
+    "http.proxySupport": "on",
+    "files.autoSave": "onFocusChange",
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "files.encoding": "utf8",
+    "editor.fontVariations": false,
+    "editor.fontFamily": "'FiraCode Nerd Font', 'Iosevka Nerd Font','Cascadia Code','빙그레 따옴체'",
+    "editor.fontLigatures": "'cv01', 'cv02', 'cv06', 'cv13', 'cv14', 'cv16', 'cv17', 'cv18', 'cv25', 'cv26', 'cv28', 'cv29', 'cv30', 'cv31', 'cv32', 'ss01', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss09', 'ss10', 'onum'",
+    "editor.foldingStrategy": "auto",
+    "editor.fontSize": 16,
+    "editor.tabSize": 4,
+    "editor.tabCompletion": "off",
+    "editor.renderWhitespace": "all",
+    "editor.wordWrap": "on",
+    "editor.inlayHints.enabled": "on",
+    "editor.inlayHints.fontSize": 11,
+    "editor.codeLensFontFamily": "'빙그레 따옴체'",
+    "editor.codeLens": true,
+    "editor.codeLensFontSize": 9,
+    "editor.accessibilitySupport": "off",
+    "editor.minimap.enabled": false,
+    "editor.cursorStyle": "line",
+    "editor.cursorBlinking": "expand",
+    "editor.trimAutoWhitespace": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSaveMode": "file",
+    "editor.suggestFontSize": 10,
+    "editor.suggest.showDeprecated": false,
+    "editor.suggest.showWords": true,
+    "editor.suggest.matchOnWordStartOnly": true,
+    "editor.suggest.showStatusBar": true,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.snippetSuggestions": "inline",
+    "editor.suggest.selectionMode": "whenQuickSuggestion",
+    "editor.quickSuggestions": {
+        "other": "on",
+        "comments": "off",
+        "strings": "off"
+    },
+    "editor.inlineSuggest.fontFamily": "'-apple-system,BlinkMacSystemFont,FiraCode Nerd Font', '빙그레 따옴체'",
+    "editor.tokenColorCustomizations": {
+        "[Noctis]": {
+            "comments": "#38b2ac",
+            "textMateRules": [
+                {
+                    "scope": "variable.other.rust",
+                    "settings": {
+                        "foreground": "#FFFF00"
+                    }
+                }
+            ]
+        }
+    },
+    "editor.semanticTokenColorCustomizations": {
+        "rules": {
+            "*.mutable": {
+                "fontStyle": ""
+            }
+        }
+    },
+    "terminal.integrated.focusAfterRun": "terminal",
+    "terminal.integrated.fontFamily": "'FiraCode Nerd Font', '빙그레 따옴체'",
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.lineHeight": 1.1,
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.tabs.hideCondition": "singleTerminal",
+    "explorer.compactFolders": false,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "better-comments.tags": [
+        {
+            "tag": "!",
+            "color": "#D158E4",
+            "strikethrough": false,
+            "backgroundColor": "transparent"
+        },
+        {
+            "tag": "?",
+            "color": "#3498DB",
+            "strikethrough": false,
+            "backgroundColor": "transparent"
+        },
+        {
+            "tag": "-->",
+            "color": "#B794F4",
+            "strikethrough": false,
+            "backgroundColor": "transparent"
+        },
+        {
+            "tag": "*",
+            "color": "#5f9ea0",
+            "strikethrough": false,
+            "backgroundColor": "transparent"
+        },
+        {
+            "tag": "TODO",
+            "color": "#255,0,0",
+            "strikethrough": false,
+            "backgroundColor": "transparent"
+        },
+        {
+            "tag": "$",
+            "color": "#00CED1",
+            "strikethrough": false,
+            "backgroundColor": "transparent"
+        }
+    ],
+    "redhat.telemetry.enabled": true,
+    "prettier.semi": true,
+    "prettier.singleQuote": true,
+    "prettier.tabWidth": 2,
+    "prettier.singleAttributePerLine": true,
+    "prettier.bracketSameLine": false,
+    "prettier.bracketSpacing": true,
+    "debug.console.fontFamily": "'FiraCode Nerd Font', '빙그레 따옴체'",
+    "debug.console.fontSize": 15,
+    "debug.console.collapseIdenticalLines": true,
+    "breadcrumbs.enabled": false,
+    "remote.SSH.remotePlatform": {
+        "bm": "windows",
+        "helloworld\\bm": "windows",
+        "vivabj.bj.local": "windows"
+    },
+    "markdown-mermaid.languages": [
+        "mermaid"
+    ],
+    "markdown-mermaid.lightModeTheme": "forest",
+    "markdown.extension.math.enabled": true,
+    "markdown.preview.fontFamily": "'Ubuntu', '빙그레 따옴체'",
+    "markdownlint.run": "onSave",
+    "markdownlint.config": {
+        "default": true,
+        "MD003": {
+            "style": "consistent"
+        },
+        "MD007": {
+            "indent": 4
+        },
+        "no-hard-tabs": false,
+        "MD046": false,
+        "MD033": false,
+        "MD032": false
+    },
+    "[log][Log]": {
+        "editor.fontSize": 13,
+        "editor.fontFamily": "'-apple-system,BlinkMacSystemFont,FiraCode Nerd Font', '빙그레 따옴체'"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+        "editor.quickSuggestions": {
+            "other": "off",
+            "comments": "off",
+            "strings": "off"
+        },
+        "editor.formatOnSave": true,
+        "editor.fontFamily": "'FiraCode Nerd Font', '빙그레 따옴체'"
+    },
+    "vim.vimrc.enable": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.easymotion": true,
+    "vim.hlsearch": true,
+    "vim.incsearch": true,
+    "vim.leader": "<space>",
+    "vim.autoindent": true,
+    "vim.startInInsertMode": false,
+    "vim.searchMatchColor": "#3c366b",
+    "vim.textwidth": 120,
+    "vim.timeout": 200,
+    "vim.gdefault": true,
+    "vim.joinspaces": true,
+    "vim.shell": "/opt/homebrew/bin/zsh",
+    "vim.mouseSelectionGoesIntoVisualMode": false,
+    "vim.insertModeKeyBindings": [],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "K"
+            ],
+            "commands": [
+                "lineBreakInsert"
+            ],
+            "silent": true
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        }
+    ],
+    "vim.statusBarColorControl": true,
+    "vim.statusBarColors.normal": [
+        "#8FBCBB",
+        "#434C5E"
+    ],
+    "vim.statusBarColors.insert": "#BF616A",
+    "vim.statusBarColors.visual": "#B48EAD",
+    "vim.statusBarColors.visualline": "#B48EAD",
+    "vim.statusBarColors.visualblock": "#A3BE8C",
+    "vim.statusBarColors.replace": "#D08770",
+    "vim.statusBarColors.commandlineinprogress": "#007ACC",
+    "vim.statusBarColors.searchinprogressmode": "#007ACC",
+    "vim.statusBarColors.easymotionmode": "#007ACC",
+    "vim.statusBarColors.easymotioninputmode": "#007ACC",
+    "vim.statusBarColors.surroundinputmode": "#007ACC",
+    "extensions.experimental.affinity": {
+        "vscode.vim": 1
+    },
+    "git.openRepositoryInParentFolders": "always",
+    "yaml.schemas": {
+        "file:///Users/vivakr/.vscode/extensions/docsmsft.docs-yaml-1.0.1/dist/toc.schema.json": "/toc\\.yml/i"
+    },
+    "typescript.inlayHints.parameterNames.enabled": "all",
+    "[snippets]": {
+        "editor.defaultFormatter": "vscode.json-language-features",
+        "editor.autoClosingQuotes": "always",
+        "editor.suggestOnTriggerCharacters": false,
+        "editor.quickSuggestions": {
+            "other": "off",
+            "comments": "off",
+            "strings": "off"
+        }
+    },
+    "[dockerfile]": {
+        "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+    },
+    "[lldb.disassembly]": {
+        "outline.showModules": false
+    },
+    "workbench.editor.showTabs": "multiple",
+    "workbench.sideBar.location": "right",
+    "workbench.editorAssociations": {
+        "*.db": "sqlite-viewer.option"
+    },
+    "workbench.layoutControl.enabled": false,
+    "workbench.startupEditor": "none",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.colorTheme": "Noctis",
+    "workbench.editor.enablePreview": true,
+    "workbench.colorCustomizations": {
+        "tab.activeBorder": "#ff0000",
+        "tab.activeBorderTop": "#ff0000",
+        "[Noctis]": {
+            "editor.selectionBackground": "#590477"
+        },
+        "statusBar.background": "#B48EAD",
+        "statusBar.noFolderBackground": "#B48EAD",
+        "statusBar.debuggingBackground": "#B48EAD",
+        "statusBar.foreground": "#434C5E",
+        "statusBar.debuggingForeground": "#434C5E"
+    },
+    "clang-format.executable": "/opt/homebrew/bin/clang-format",
+    "clang-format.style": "file",
+    "[xml]": {
+        "editor.defaultFormatter": "redhat.vscode-xml",
+        "editor.tabSize": 2
+    },
+    "[proto3]": {
+        "editor.defaultFormatter": "zxh404.vscode-proto3"
+    },
+    "css.lint.unknownAtRules": "ignore",
+    "scss.lint.unknownAtRules": "ignore",
+    "[scss]": {
+        "editor.suggest.insertMode": "insert"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features",
+        "editor.quickSuggestions": {
+            "other": "on",
+            "comments": "off",
+            "strings": "off"
+        }
+    },
+    "[jsonc]": {
+        "editor.quickSuggestions": {
+            "other": "on",
+            "comments": "off",
+            "strings": "off"
+        },
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "html.format.wrapLineLength": 120,
+    "html.format.wrapAttributes": "preserve-aligned",
+    "html.format.wrapAttributesIndentSize": 4,
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features",
+        "editor.tabSize": 4,
+        "editor.formatOnPaste": true,
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.detectIndentation": false,
+        "files.autoSave": "onFocusChange",
+        "files.autoSaveDelay": 1000
+    },
+    "hexeditor.showOpenFileButton": true,
+    "hexeditor.columnWidth": 16,
+    "hexeditor.showDecodedText": true,
+    "hexeditor.defaultEndianness": "little",
+    "hexeditor.inspectorType": "aside",
+    "tailwindCSS.includeLanguages": {
+        "html": "HTML",
+        "plaintext": "javascript",
+        "javascript": "javascript",
+        "javascriptreact": "javascriptreact",
+        "typescript": "typescript",
+        "typescriptreact": "typescriptreact"
+    },
+    "tailwindCSS.emmetCompletions": true,
+    "txtsyntax.associations": [
+        ".tmp",
+        ".cnf",
+        ".log",
+        ".eds",
+        ".aaa"
+    ],
+    "files.associations": {
+        "*.tmp": "txt",
+        "*.cnf": "txt",
+        "*.log": "txt",
+        "*.eds": "txt",
+        "*.aaa": "txt",
+        "*.mjs": "javascript",
+        "*.rmd": "markdown"
+    },
+    "javascript.referencesCodeLens.enabled": true,
+    "javascript.referencesCodeLens.showOnAllFunctions": true,
+    "javascript.suggest.names": false,
+    "js/ts.implicitProjectConfig.target": "ESNext",
+    "C_Cpp.clang_format_path": "/Users/vivakr/.clang-format",
+    "C_Cpp.default.cStandard": "c17",
+    "C_Cpp.default.cppStandard": "c++23",
+    "C_Cpp.default.intelliSenseMode": "macos-clang-arm64",
+    "C_Cpp.files.exclude": {
+        "**/.vscode": true,
+        "**/.vs": true
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format",
+        "editor.autoClosingBrackets": "beforeWhitespace"
+    },
+    "[c]": {
+        "editor.defaultFormatter": "xaver.clang-format",
+        "editor.autoClosingBrackets": "beforeWhitespace"
+    },
+    "[typescriptreact]": {
+        "editor.tabSize": 2
+    },
+    "[plaintext]": {
+        "editor.suggest.showSnippets": false,
+        "editor.suggest.showWords": false,
+        "editor.acceptSuggestionOnCommitCharacter": false,
+        "editor.acceptSuggestionOnEnter": "off",
+        "editor.quickSuggestions": {
+            "other": "off",
+            "comments": "off",
+            "strings": "off"
+        }
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features",
+        "editor.parameterHints.enabled": true
+    },
+    "[javascriptreact]": {
+        "editor.tabSize": 2,
+        "editor.indentSize": "tabSize",
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[r]": {
+        "editor.quickSuggestions": {
+            "other": "on",
+            "comments": "off",
+            "strings": "off"
+        },
+        "editor.formatOnType": true
+    },
+    "[python]": {
+        "diffEditor.ignoreTrimWhitespace": false,
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": false,
+        "editor.formatOnType": true,
+        "editor.wordBasedSuggestions": "off",
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "thunder-client.defaultURL": "http://localhost:58880",
+    "zig.path": "/Users/vivakr/Library/Application Support/Code/User/globalStorage/ziglang.vscode-zig/zig_install/zig",
+    "zig.initialSetupDone": true,
+    "cmake.configureOnOpen": false,
+    "cmake.showOptionsMovedNotification": false,
+    "cmake.showConfigureWithDebuggerNotification": false,
+    "cmake.options.advanced": {
+        "buildPreset": {},
+        "build": {
+            "statusBarVisibility": "inherit",
+            "inheritDefault": "visible"
+        },
+        "launch": {
+            "statusBarVisibility": "inherit",
+            "inheritDefault": "visible"
+        },
+        "debug": {
+            "statusBarVisibility": "inherit",
+            "inheritDefault": "visible"
+        }
+    },
+    "debug.inlineValues": "on",
+    "rust-analyzer.completion.callable.snippets": "fill_arguments",
+    "rust-analyzer.hover.show.traitAssocItems": 5,
+    "rust-analyzer.inlayHints.bindingModeHints.enable": true,
+    "rust-analyzer.inlayHints.closureCaptureHints.enable": true,
+    "rust-analyzer.interpret.tests": true,
+    "rust-analyzer.completion.autoimport.enable": true,
+    "rust-analyzer.server.extraEnv": {
+        "RUSTUP_TOOLCHAIN": "stable"
+    },
+    "rust-analyzer.lens.references.method.enable": true,
+    "rust-analyzer.cargo.allTargets": true,
+    "[rust]": {
+        "editor.quickSuggestions": {
+            "other": "on",
+            "comments": false,
+            "strings": false
+        },
+        "editor.quickSuggestionsDelay": 250,
+        "editor.formatOnType": true,
+        "editor.suggest.showDeprecated": false,
+        "editor.parameterHints.enabled": false
+    },
+    "rust-analyzer.inlayHints.lifetimeElisionHints.useParameterNames": true,
+    "rust-analyzer.inlayHints.implicitDrops.enable": true,
+    "rust-analyzer.inlayHints.rangeExclusiveHints.enable": true,
+    "rust-analyzer.inlayHints.typeHints.hideNamedConstructor": true,
+    "rust-analyzer.inlayHints.closureReturnTypeHints.enable": "always",
+    "[powershell]": {
+        "debug.saveBeforeStart": "nonUntitledEditorsInActiveGroup",
+        "editor.semanticHighlighting.enabled": false,
+        "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?"
+    },
+    "csharp.debug.logging.moduleLoad": false,
+    "csharp.inlayHints.enableInlayHintsForLambdaParameterTypes": true,
+    "csharp.inlayHints.enableInlayHintsForTypes": true,
+    "csharp.inlayHints.enableInlayHintsForImplicitObjectCreation": true,
+    "csharp.inlayHints.enableInlayHintsForImplicitVariableTypes": true,
+    "dotnet.inlayHints.enableInlayHintsForIndexerParameters": true,
+    "dotnet.inlayHints.enableInlayHintsForLiteralParameters": true,
+    "dotnet.inlayHints.enableInlayHintsForObjectCreationParameters": true,
+    "dotnet.inlayHints.enableInlayHintsForOtherParameters": true,
+    "dotnet.inlayHints.enableInlayHintsForParameters": true,
+    "dotnet.inlayHints.suppressInlayHintsForParametersThatDifferOnlyBySuffix": true,
+    "dotnet.inlayHints.suppressInlayHintsForParametersThatMatchArgumentName": true,
+    "dotnet.inlayHints.suppressInlayHintsForParametersThatMatchMethodIntent": true,
+    "[csharp]": {
+        "editor.maxTokenizationLineLength": 2500,
+        "editor.inlineSuggest.suppressSuggestions": true
+    },
+    "github.copilot.chat.localeOverride": "ko",
+    "dart.flutterSdkPath": "/Users/vivakr/GitWorkspace/Flutter_SDK/flutter",
+    "dart.openDevTools": "flutter",
+    "[shellscript]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "github.copilot.editor.enableAutoCompletions": true,
+    "vsicons.dontShowNewVersionMessage": true
+}
